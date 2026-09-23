@@ -6,6 +6,30 @@
   <title id="meta-title">AegisPunish Docs | Documentação Oficial</title>
   <meta name="description" id="meta-desc" content="Documentação oficial do AegisPunish - Suíte de moderação corporativa para Minecraft Paper, Folia, Velocity e BungeeCord.">
   <link rel="icon" type="image/png" href="img/aegispunish.png">
+
+  <!-- Open Graph / Discord / WhatsApp Embed Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wdprozin2.github.io/AegisPunish/">
+  <meta property="og:title" content="AegisPunish Docs | Documentação Oficial">
+  <meta property="og:description" content="Documentação oficial do AegisPunish - Suíte de moderação corporativa para Minecraft Paper, Folia, Velocity e BungeeCord.">
+  <meta property="og:image" content="https://wdprozin2.github.io/AegisPunish/img/aegispunish.png">
+  <meta property="og:image:secure_url" content="https://wdprozin2.github.io/AegisPunish/img/aegispunish.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="500">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="AegisPunish Shield Logo">
+  <meta property="og:site_name" content="AegisPunish Documentation">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AegisPunish Docs | Documentação Oficial">
+  <meta name="twitter:description" content="Documentação oficial do AegisPunish - Suíte de moderação corporativa para Minecraft Paper, Folia, Velocity e BungeeCord.">
+  <meta name="twitter:image" content="https://wdprozin2.github.io/AegisPunish/img/aegispunish.png">
+
+  <!-- Mobile Viewport & Discord Theme Color -->
+  <meta name="theme-color" content="#00d2ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -768,26 +792,359 @@
       color: var(--sl-color-text-muted);
     }
 
+
+    /* ==========================================================================
+       MOBILE OPTIMIZATIONS & RESPONSIVE DESIGN (PaperMC Astro Starlight Style)
+       ========================================================================== */
+
+    body.sidebar-open {
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    /* Backdrop overlay for mobile drawer */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 95;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      cursor: pointer;
+    }
+    .sidebar-backdrop.active {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Sidebar Mobile Header & Close Button */
+    .sidebar-mobile-header {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--sl-color-hairline);
+    }
+    .sidebar-mobile-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--sl-color-white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-close-btn {
+      background: var(--sl-color-gray-6);
+      border: 1px solid var(--sl-color-hairline);
+      border-radius: var(--sl-radius-sm);
+      color: var(--sl-color-text-muted);
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.15rem;
+      line-height: 1;
+      transition: all 0.15s ease;
+    }
+    .sidebar-close-btn:hover {
+      color: var(--sl-color-white);
+      border-color: var(--sl-color-accent);
+      background: var(--sl-color-gray-5);
+    }
+
+    /* Sidebar Mobile Community & External Links */
+    .sidebar-mobile-links {
+      display: none;
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--sl-color-hairline);
+    }
+    .sidebar-mobile-links-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sl-color-text-muted);
+      margin-bottom: 10px;
+      padding: 0 4px;
+    }
+    .sidebar-mobile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .sidebar-mobile-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--sl-radius-sm);
+      background: var(--sl-color-gray-6);
+      border: 1px solid var(--sl-color-hairline);
+      color: var(--sl-color-gray-2);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .sidebar-mobile-btn:hover {
+      color: var(--sl-color-white);
+      border-color: var(--sl-color-accent);
+      text-decoration: none;
+    }
+    .sidebar-mobile-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Mobile Search Button in Header */
+    .mobile-search-btn {
+      display: none;
+    }
+
+    /* Mobile "On This Page" / "Nesta Página" Dropdown */
+    .mobile-toc-container {
+      display: none;
+      margin-bottom: 24px;
+      background: var(--sl-color-gray-6);
+      border: 1px solid var(--sl-color-hairline);
+      border-radius: var(--sl-radius-md);
+      overflow: hidden;
+    }
+    .mobile-toc-btn {
+      width: 100%;
+      padding: 10px 14px;
+      background: transparent;
+      border: none;
+      color: var(--sl-color-text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+    }
+    .mobile-toc-btn-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sl-color-accent);
+    }
+    .mobile-toc-arrow {
+      transition: transform 0.2s ease;
+      color: var(--sl-color-text-muted);
+    }
+    .mobile-toc-container.open .mobile-toc-arrow {
+      transform: rotate(180deg);
+    }
+    .mobile-toc-dropdown {
+      display: none;
+      padding: 8px 12px 14px 12px;
+      border-top: 1px solid var(--sl-color-hairline);
+      background: var(--sl-color-bg-sidebar);
+    }
+    .mobile-toc-container.open .mobile-toc-dropdown {
+      display: block;
+    }
+    .mobile-toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 10px;
+    }
+    .mobile-toc-list li {
+      margin-bottom: 2px;
+    }
+    .mobile-toc-link {
+      display: block;
+      padding: 6px 8px;
+      color: var(--sl-color-text-muted);
+      font-size: 0.82rem;
+      border-radius: 4px;
+      text-decoration: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .mobile-toc-link:hover, .mobile-toc-link.active {
+      color: var(--sl-color-accent);
+      background: var(--sl-color-accent-bg);
+      text-decoration: none;
+    }
+
     @media (max-width: 1180px) {
-      aside.sl-toc { display: none; }
-      main.sl-main { margin-right: 0; max-width: 100%; }
+      aside.sl-toc { display: none !important; }
+      main.sl-main { margin-right: 0 !important; max-width: 100% !important; }
+      .mobile-toc-container { display: block; }
     }
 
     @media (max-width: 860px) {
+      header.sl-header {
+        height: 56px;
+        padding: 0 12px;
+      }
+      .docs-layout {
+        margin-top: 56px;
+      }
+      .mobile-menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--sl-radius-sm);
+        border: 1px solid var(--sl-color-hairline);
+        background: var(--sl-color-gray-6);
+        color: var(--sl-color-text);
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.15s ease;
+      }
+      .mobile-menu-toggle:hover, .mobile-menu-toggle:focus {
+        border-color: var(--sl-color-accent);
+        color: var(--sl-color-accent);
+        background: var(--sl-color-gray-5);
+      }
+      .mobile-search-btn {
+        display: inline-flex !important;
+      }
+      .header-center {
+        display: none !important;
+      }
+      .brand-link {
+        gap: 8px;
+      }
+      .brand-name {
+        font-size: 1.05rem;
+      }
+      .brand-logo {
+        width: 30px;
+        height: 30px;
+      }
+      
+      /* Sidebar Drawer on Mobile */
       aside.sl-sidebar {
+        top: 0;
+        width: min(320px, 86vw);
+        padding: 16px 14px 40px 16px;
+        z-index: 100;
         transform: translateX(-100%);
-        transition: transform 0.25s ease;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 4px 0 28px rgba(0, 0, 0, 0.65);
+        background-color: var(--sl-color-bg-sidebar);
       }
       aside.sl-sidebar.open {
         transform: translateX(0);
       }
-      main.sl-main {
-        margin-left: 0;
-        padding: 30px 20px 60px 20px;
+      .sidebar-mobile-header {
+        display: flex;
       }
-      .header-center { display: none; }
-      .mobile-menu-toggle { display: block; }
+      .sidebar-mobile-links {
+        display: block;
+      }
+
+      /* Main container */
+      main.sl-main {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 24px 16px 70px 16px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .table-container {
+        margin: 14px 0;
+        border-radius: var(--sl-radius-sm);
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        min-width: 500px;
+      }
+      th, td {
+        padding: 10px 12px;
+        font-size: 0.82rem;
+      }
+      h1.doc-title {
+        font-size: clamp(1.7rem, 6vw, 2.2rem);
+      }
+      p.doc-lead {
+        font-size: 0.98rem;
+        margin-bottom: 20px;
+      }
+      h2.section-heading {
+        font-size: 1.35rem;
+        margin-top: 36px;
+        padding-top: 18px;
+      }
+      h3.sub-heading {
+        font-size: 1.1rem;
+      }
+      .code-frame {
+        margin: 14px 0;
+        border-radius: var(--sl-radius-sm);
+      }
+      pre {
+        padding: 12px;
+        font-size: 0.82rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .copy-btn {
+        padding: 3px 6px;
+        font-size: 0.7rem;
+      }
+      .search-modal-backdrop {
+        padding: 12px;
+        padding-top: 20px;
+      }
+      .search-modal {
+        border-radius: var(--sl-radius-md);
+        max-height: 82vh;
+      }
+      footer.doc-footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        margin-top: 40px;
+      }
     }
+
+    @media (max-width: 600px) {
+      .header-right .social-link {
+        display: none !important;
+      }
+      .lang-picker-wrapper {
+        padding: 0 4px;
+        height: 32px;
+      }
+      .lang-picker-icon {
+        display: none;
+      }
+      .lang-select {
+        font-size: 0.78rem;
+      }
+      .brand-badge {
+        display: none;
+      }
+      .mobile-toc-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -824,6 +1181,14 @@
     </div>
 
     <div class="header-right">
+      <!-- Mobile Search Button -->
+      <button class="icon-btn mobile-search-btn" id="open-search-mobile-btn" aria-label="Pesquisar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
       <!-- Language Picker Dropdown (pt_BR, en, es) -->
       <div class="lang-picker-wrapper">
         <svg class="lang-picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -839,21 +1204,21 @@
       </div>
 
       <!-- SpigotMC Link -->
-      <a href="https://www.spigotmc.org/resources/139053/" target="_blank" rel="noopener" class="icon-btn" title="SpigotMC">
+      <a href="https://www.spigotmc.org/resources/139053/" target="_blank" rel="noopener" class="icon-btn social-link" title="SpigotMC">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
         </svg>
       </a>
 
       <!-- Modrinth Link -->
-      <a href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener" class="icon-btn" title="Modrinth">
+      <a href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener" class="icon-btn social-link" title="Modrinth">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.252 0C5.485 0 0 5.485 0 12.252c0 2.22.585 4.305 1.615 6.108l.044.076.01.018a12.2 12.2 0 0 0 3.03 3.493l.032.023.018.012a12.25 12.25 0 0 0 7.503 2.018c6.767 0 12.252-5.485 12.252-12.252S19.019 0 12.252 0zm6.242 16.586l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144zM8.36 12.01l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144zm-3.238 3.19l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144z"/>
         </svg>
       </a>
 
       <!-- GitHub Link -->
-      <a href="https://github.com/wdprozin2/AegisPunish" target="_blank" rel="noopener" class="icon-btn" title="GitHub">
+      <a href="https://github.com/wdprozin2/AegisPunish" target="_blank" rel="noopener" class="icon-btn social-link" title="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
         </svg>
@@ -894,11 +1259,19 @@
     </div>
   </div>
 
-  <!-- MAIN LAYOUT -->
+  <!-- SIDEBAR BACKDROP & MAIN LAYOUT -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
   <div class="docs-layout">
     
     <!-- LEFT SIDEBAR -->
     <aside class="sl-sidebar" id="sidebar">
+      <div class="sidebar-mobile-header">
+        <div class="sidebar-mobile-title">
+          <img src="img/aegispunish.png" alt="Logo" width="24" height="24" style="border-radius:4px;">
+          <span>AegisPunish Docs</span>
+        </div>
+        <button class="sidebar-close-btn" id="sidebar-close" aria-label="Fechar menu">✕</button>
+      </div>
       <div class="sidebar-group">
         <div class="sidebar-group-title" data-i18n="sb_getting_started">INÍCIO</div>
         <ul class="sidebar-list">
@@ -935,10 +1308,60 @@
           <li><a href="#developer-api" class="sidebar-link" data-i18n="sb_api">Developer API & Eventos</a></li>
         </ul>
       </div>
+
+      <div class="sidebar-mobile-links">
+        <div class="sidebar-mobile-links-title">Links & Comunidade</div>
+        <div class="sidebar-mobile-grid">
+          <a href="https://www.spigotmc.org/resources/139053/" target="_blank" rel="noopener" class="sidebar-mobile-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>SpigotMC</span>
+          </a>
+          <a href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener" class="sidebar-mobile-btn">
+            <svg viewBox="0 0 24 24"><path d="M12.252 0C5.485 0 0 5.485 0 12.252c0 2.22.585 4.305 1.615 6.108l.044.076.01.018a12.2 12.2 0 0 0 3.03 3.493l.032.023.018.012a12.25 12.25 0 0 0 7.503 2.018c6.767 0 12.252-5.485 12.252-12.252S19.019 0 12.252 0zm6.242 16.586l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144zM8.36 12.01l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144zm-3.238 3.19l2.028-1.996a.81.81 0 0 1 1.144 0l4.148 4.085a.81.81 0 0 1 0 1.144l-2.028 1.996a.81.81 0 0 1-1.144 0l-4.148-4.085a.81.81 0 0 1 0-1.144z"/></svg>
+            <span>Modrinth</span>
+          </a>
+          <a href="https://github.com/wdprozin2/AegisPunish" target="_blank" rel="noopener" class="sidebar-mobile-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="#discord-webhooks" class="sidebar-mobile-btn">
+            <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <span>Discord</span>
+          </a>
+        </div>
+      </div>
     </aside>
 
     <!-- MAIN ARTICLE -->
     <main class="sl-main">
+      <!-- Mobile "On this page" Table of Contents -->
+      <nav class="mobile-toc-container" id="mobile-toc-wrapper">
+        <button class="mobile-toc-btn" id="mobile-toc-btn" type="button" aria-expanded="false">
+          <span class="mobile-toc-btn-text">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="15" y2="12"></line><line x1="3" y1="18" x2="18" y2="18"></line></svg>
+            <span id="mobile-toc-label" data-i18n="toc_title">Nesta página</span>
+          </span>
+          <svg class="mobile-toc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="mobile-toc-dropdown" id="mobile-toc-dropdown">
+          <ul class="mobile-toc-list">
+            <li><a href="#overview" class="mobile-toc-link" data-i18n="sb_overview">Visão Geral</a></li>
+            <li><a href="#installation" class="mobile-toc-link" data-i18n="sb_installation">Instalação</a></li>
+            <li><a href="#compatibility" class="mobile-toc-link" data-i18n="sb_compatibility">Plataformas</a></li>
+            <li><a href="#punishments" class="mobile-toc-link" data-i18n="sb_punishments">Punições</a></li>
+            <li><a href="#history-rollback" class="mobile-toc-link" data-i18n="sb_history_rollback">Histórico</a></li>
+            <li><a href="#staff-hierarchy" class="mobile-toc-link" data-i18n="sb_staff_hierarchy">Hierarquia</a></li>
+            <li><a href="#discord-webhooks" class="mobile-toc-link" data-i18n="sb_discord">Discord</a></li>
+            <li><a href="#auto-updater" class="mobile-toc-link" data-i18n="sb_updater">Auto-Updater</a></li>
+            <li><a href="#config-file" class="mobile-toc-link" data-i18n="sb_config_file">config.yml</a></li>
+            <li><a href="#database" class="mobile-toc-link" data-i18n="sb_database">Banco de Dados</a></li>
+            <li><a href="#placeholders" class="mobile-toc-link" data-i18n="sb_placeholders">Placeholders</a></li>
+            <li><a href="#commands-table" class="mobile-toc-link" data-i18n="sb_commands">Comandos</a></li>
+            <li><a href="#developer-api" class="mobile-toc-link" data-i18n="sb_api">Developer API</a></li>
+          </ul>
+        </div>
+      </nav>
+
       <div class="breadcrumbs">
         <span>AegisPunish Docs</span>
         <span class="sep">/</span>
@@ -1989,11 +2412,56 @@ public void onPunish(PlayerPunishEvent event) {
       });
     }
 
+    // Sidebar Mobile Drawer & Backdrop Logic
     const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarClose = document.getElementById('sidebar-close');
+    const sidebarBackdrop = document.getElementById('sidebar-backdrop');
     const sidebar = document.getElementById('sidebar');
-    if (sidebarToggle && sidebar) {
-      sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
+
+    function openSidebar() {
+      if (sidebar) sidebar.classList.add('open');
+      if (sidebarBackdrop) sidebarBackdrop.classList.add('active');
+      document.body.classList.add('sidebar-open');
+    }
+
+    function closeSidebar() {
+      if (sidebar) sidebar.classList.remove('open');
+      if (sidebarBackdrop) sidebarBackdrop.classList.remove('active');
+      document.body.classList.remove('sidebar-open');
+    }
+
+    if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+    if (sidebarClose) sidebarClose.addEventListener('click', closeSidebar);
+    if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+
+    // Auto-close sidebar on mobile when tapping any link
+    document.querySelectorAll('.sidebar-link, .sidebar-mobile-btn').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 860) {
+          closeSidebar();
+        }
+      });
+    });
+
+    // Mobile Search Button Handler
+    const openSearchMobileBtn = document.getElementById('open-search-mobile-btn');
+    if (openSearchMobileBtn) {
+      openSearchMobileBtn.addEventListener('click', openSearch);
+    }
+
+    // Mobile TOC Dropdown Toggle
+    const mobileTocBtn = document.getElementById('mobile-toc-btn');
+    const mobileTocContainer = document.getElementById('mobile-toc-wrapper');
+    if (mobileTocBtn && mobileTocContainer) {
+      mobileTocBtn.addEventListener('click', () => {
+        const isOpen = mobileTocContainer.classList.toggle('open');
+        mobileTocBtn.setAttribute('aria-expanded', isOpen);
+      });
+      document.querySelectorAll('.mobile-toc-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileTocContainer.classList.remove('open');
+          mobileTocBtn.setAttribute('aria-expanded', 'false');
+        });
       });
     }
 
