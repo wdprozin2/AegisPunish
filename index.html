@@ -114,9 +114,7 @@
       font-family: var(--sl-font-mono);
     }
 
-    /* ==========================================================================
-       HEADER (Starlight / PaperMC Top Bar)
-       ========================================================================== */
+    /* HEADER */
     header.sl-header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -177,7 +175,6 @@
       margin-left: 2px;
     }
 
-    /* Search Bar Input / Trigger */
     .header-center {
       flex: 1;
       max-width: 480px;
@@ -221,10 +218,9 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
-    /* Language Picker Dropdown */
     .lang-picker-wrapper {
       position: relative;
       display: flex;
@@ -261,7 +257,6 @@
       color: var(--sl-color-text);
     }
 
-    /* Social Icon Links */
     .icon-btn {
       width: 36px;
       height: 36px;
@@ -296,16 +291,13 @@
       padding: 6px;
     }
 
-    /* ==========================================================================
-       LAYOUT CONTAINER (Sidebar + Main + TOC)
-       ========================================================================== */
+    /* LAYOUT */
     .docs-layout {
       display: flex;
       margin-top: var(--sl-nav-height);
       min-height: calc(100vh - var(--sl-nav-height));
     }
 
-    /* SIDEBAR */
     aside.sl-sidebar {
       width: var(--sl-sidebar-width);
       position: fixed;
@@ -320,17 +312,13 @@
       scrollbar-width: thin;
       scrollbar-color: var(--sl-color-hairline) transparent;
     }
-    aside.sl-sidebar::-webkit-scrollbar {
-      width: 5px;
-    }
+    aside.sl-sidebar::-webkit-scrollbar { width: 5px; }
     aside.sl-sidebar::-webkit-scrollbar-thumb {
       background-color: var(--sl-color-hairline);
       border-radius: 4px;
     }
 
-    .sidebar-group {
-      margin-bottom: 24px;
-    }
+    .sidebar-group { margin-bottom: 24px; }
     .sidebar-group-title {
       font-size: 0.78rem;
       font-weight: 700;
@@ -342,13 +330,8 @@
       align-items: center;
       justify-content: space-between;
     }
-    .sidebar-list {
-      list-style: none;
-      margin-top: 4px;
-    }
-    .sidebar-list li {
-      margin-bottom: 2px;
-    }
+    .sidebar-list { list-style: none; margin-top: 4px; }
+    .sidebar-list li { margin-bottom: 2px; }
     .sidebar-link {
       display: flex;
       align-items: center;
@@ -387,7 +370,6 @@
       font-weight: 700;
     }
 
-    /* MAIN CONTENT */
     main.sl-main {
       flex: 1;
       margin-left: var(--sl-sidebar-width);
@@ -397,7 +379,6 @@
       min-width: 0;
     }
 
-    /* RIGHT TOC */
     aside.sl-toc {
       width: var(--sl-toc-width);
       position: fixed;
@@ -421,12 +402,8 @@
       align-items: center;
       gap: 6px;
     }
-    .toc-list {
-      list-style: none;
-    }
-    .toc-list li {
-      margin-bottom: 6px;
-    }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 6px; }
     .toc-link {
       display: block;
       color: var(--sl-color-text-muted);
@@ -446,9 +423,6 @@
       font-weight: 600;
     }
 
-    /* ==========================================================================
-       CONTENT ELEMENTS (PaperMC / Starlight Components)
-       ========================================================================== */
     .breadcrumbs {
       display: flex;
       align-items: center;
@@ -457,13 +431,8 @@
       color: var(--sl-color-text-muted);
       margin-bottom: 14px;
     }
-    .breadcrumbs span.sep {
-      opacity: 0.5;
-    }
-    .breadcrumbs span.active {
-      color: var(--sl-color-text);
-      font-weight: 500;
-    }
+    .breadcrumbs span.sep { opacity: 0.5; }
+    .breadcrumbs span.active { color: var(--sl-color-text); font-weight: 500; }
 
     h1.doc-title {
       font-size: 2.35rem;
@@ -509,7 +478,6 @@
       color: #4ade80;
     }
 
-    /* Starlight Card Grid */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -559,7 +527,6 @@
       line-height: 1.5;
     }
 
-    /* Headings */
     h2.section-heading {
       font-size: 1.6rem;
       font-weight: 700;
@@ -578,9 +545,7 @@
       text-decoration: none;
       transition: opacity 0.15s ease;
     }
-    h2.section-heading:hover a.anchor {
-      opacity: 1;
-    }
+    h2.section-heading:hover a.anchor { opacity: 1; }
 
     h3.sub-heading {
       font-size: 1.2rem;
@@ -589,12 +554,8 @@
       margin: 28px 0 12px 0;
     }
 
-    p {
-      margin-bottom: 16px;
-      color: var(--sl-color-gray-2);
-    }
+    p { margin-bottom: 16px; color: var(--sl-color-gray-2); }
 
-    /* Starlight Admonitions / Callouts */
     .sl-callout {
       border-radius: var(--sl-radius-md);
       padding: 16px 20px;
@@ -611,9 +572,7 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .sl-callout-content {
-      flex: 1;
-    }
+    .sl-callout-content { flex: 1; }
     .sl-callout-title {
       font-size: 0.85rem;
       font-weight: 700;
@@ -621,35 +580,20 @@
       letter-spacing: 0.05em;
       margin-bottom: 4px;
     }
-    .sl-callout p:last-child {
-      margin-bottom: 0;
-    }
+    .sl-callout p:last-child { margin-bottom: 0; }
 
-    .sl-callout.note {
-      border-color: #3b82f6;
-      background: rgba(59, 130, 246, 0.08);
-    }
+    .sl-callout.note { border-color: #3b82f6; background: rgba(59, 130, 246, 0.08); }
     .sl-callout.note .sl-callout-title { color: #60a5fa; }
 
-    .sl-callout.tip {
-      border-color: #10b981;
-      background: rgba(16, 185, 129, 0.08);
-    }
+    .sl-callout.tip { border-color: #10b981; background: rgba(16, 185, 129, 0.08); }
     .sl-callout.tip .sl-callout-title { color: #34d399; }
 
-    .sl-callout.caution {
-      border-color: #f59e0b;
-      background: rgba(245, 158, 11, 0.08);
-    }
+    .sl-callout.caution { border-color: #f59e0b; background: rgba(245, 158, 11, 0.08); }
     .sl-callout.caution .sl-callout-title { color: #fbbf24; }
 
-    .sl-callout.danger {
-      border-color: #ef4444;
-      background: rgba(239, 68, 68, 0.08);
-    }
+    .sl-callout.danger { border-color: #ef4444; background: rgba(239, 68, 68, 0.08); }
     .sl-callout.danger .sl-callout-title { color: #f87171; }
 
-    /* Starlight Code Frames */
     .code-frame {
       background: var(--sl-color-black);
       border: 1px solid var(--sl-color-hairline);
@@ -713,7 +657,6 @@
       color: var(--sl-color-accent-high);
     }
 
-    /* Responsive Data Tables */
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -740,24 +683,16 @@
       border-bottom: 1px solid var(--sl-color-hairline-light);
       color: var(--sl-color-gray-2);
     }
-    tr:last-child td {
-      border-bottom: none;
-    }
-    tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
 
-    /* Lists */
     ul, ol {
       margin-left: 24px;
       margin-bottom: 18px;
       color: var(--sl-color-gray-2);
     }
-    li {
-      margin-bottom: 6px;
-    }
+    li { margin-bottom: 6px; }
 
-    /* Footer */
     footer.doc-footer {
       margin-top: 60px;
       padding-top: 24px;
@@ -769,9 +704,6 @@
       font-size: 0.85rem;
     }
 
-    /* ==========================================================================
-       SEARCH MODAL
-       ========================================================================== */
     .search-modal-backdrop {
       display: none;
       position: fixed;
@@ -783,9 +715,7 @@
       justify-content: center;
       padding-top: 100px;
     }
-    .search-modal-backdrop.open {
-      display: flex;
-    }
+    .search-modal-backdrop.open { display: flex; }
     .search-modal {
       width: 100%;
       max-width: 620px;
@@ -838,7 +768,6 @@
       color: var(--sl-color-text-muted);
     }
 
-    /* Responsive Queries */
     @media (max-width: 1180px) {
       aside.sl-toc { display: none; }
       main.sl-main { margin-right: 0; max-width: 100%; }
@@ -863,7 +792,7 @@
 </head>
 <body>
 
-  <!-- ==================== HEADER ==================== -->
+  <!-- HEADER -->
   <header class="sl-header">
     <div class="header-left">
       <button class="mobile-menu-toggle" id="sidebar-toggle" aria-label="Toggle menu">
@@ -881,7 +810,6 @@
       </a>
     </div>
 
-    <!-- Center Search Bar -->
     <div class="header-center">
       <button class="search-btn" id="open-search-btn">
         <span class="search-btn-left">
@@ -896,7 +824,7 @@
     </div>
 
     <div class="header-right">
-      <!-- Language Picker Dropdown (en, es, pt_BR) -->
+      <!-- Language Picker Dropdown (pt_BR, en, es) -->
       <div class="lang-picker-wrapper">
         <svg class="lang-picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="10"></circle>
@@ -909,6 +837,13 @@
           <option value="es">🇪🇸 Español</option>
         </select>
       </div>
+
+      <!-- SpigotMC Link -->
+      <a href="https://www.spigotmc.org/resources/139053/" target="_blank" rel="noopener" class="icon-btn" title="SpigotMC">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </a>
 
       <!-- Modrinth Link -->
       <a href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener" class="icon-btn" title="Modrinth">
@@ -944,7 +879,7 @@
     </div>
   </header>
 
-  <!-- ==================== SEARCH MODAL ==================== -->
+  <!-- SEARCH MODAL -->
   <div class="search-modal-backdrop" id="search-modal">
     <div class="search-modal">
       <div class="search-modal-header">
@@ -955,13 +890,11 @@
         <input type="text" id="search-input" class="search-modal-input" placeholder="Buscar comandos, tópicos, permissões..." autofocus>
         <kbd class="search-kbd">ESC</kbd>
       </div>
-      <div class="search-results" id="search-results-list">
-        <!-- Dynamically populated -->
-      </div>
+      <div class="search-results" id="search-results-list"></div>
     </div>
   </div>
 
-  <!-- ==================== MAIN LAYOUT ==================== -->
+  <!-- MAIN LAYOUT -->
   <div class="docs-layout">
     
     <!-- LEFT SIDEBAR -->
@@ -1025,7 +958,7 @@
         <span class="badge-pill accent">SkinsRestorer & Geyser / Floodgate</span>
       </div>
 
-      <!-- Quick Cards Grid (Starlight Style) -->
+      <!-- Quick Cards Grid -->
       <div class="card-grid">
         <a href="#punishments" class="sl-card">
           <div class="sl-card-icon">⚡</div>
@@ -1059,7 +992,7 @@
           <a href="#overview" class="anchor">#</a>
         </h2>
         <p data-i18n="p_overview_1">
-          O <strong>AegisPunish</strong> foi projetado a partir do zero para suprir as demandas críticas de servidores modernos e grandes redes de Minecraft. Ao contrário de soluções legadas e pesadas, o AegisPunish conta com um motor de cache em memória thread-safe e I/O assíncrono para garantir impacto <strong>zero no TPS</strong> do servidor.
+          O AegisPunish foi projetado a partir do zero para suprir as demandas críticas de servidores modernos e grandes redes de Minecraft. Ao contrário de soluções legadas e pesadas, o AegisPunish conta com um motor de cache em memória thread-safe e I/O assíncrono para garantir impacto <strong>zero no TPS</strong> do servidor.
         </p>
 
         <div class="sl-callout tip">
@@ -1067,7 +1000,7 @@
           <div class="sl-callout-content">
             <div class="sl-callout-title" data-i18n="callout_tip_title">DICA DE ARQUITETURA</div>
             <p data-i18n="callout_tip_desc">
-              Em redes com proxy (Velocity ou BungeeCord), o AegisPunish pode rodar diretamente na ponta dos proxies ou sincronizado com múltiplos servidores Paper/Folia compartilhando uma base de dados <strong>MySQL</strong>.
+              Em redes com proxy (Velocity ou BungeeCord), o AegisPunish pode rodar diretamente na ponta dos proxies ou sincronizado com múltiplos servidores Paper/Folia compartilhando uma base de dados MySQL.
             </p>
           </div>
         </div>
@@ -1083,18 +1016,18 @@
           Para utilizar o AegisPunish em sua rede ou servidor, verifique os requisitos mínimos:
         </p>
         <ul>
-          <li><strong>Java Runtime:</strong> Java 17 ou superior (testado e otimizado para Java 21 LTS).</li>
-          <li><strong>Plataforma:</strong> Paper, Folia, Purpur (1.16 até 1.21.4+), Velocity 3.3+, ou BungeeCord / Waterfall.</li>
-          <li><strong>Banco de Dados:</strong> SQLite (nativo, sem configuração) ou MySQL / MariaDB (para redes).</li>
+          <li data-i18n="req_java"><strong>Java Runtime:</strong> Java 17 ou superior (testado e otimizado para Java 21 LTS).</li>
+          <li data-i18n="req_platform"><strong>Plataforma:</strong> Paper, Folia, Purpur (1.16 até 1.21+), Velocity 3.3+, ou BungeeCord / Waterfall.</li>
+          <li data-i18n="req_db"><strong>Banco de Dados:</strong> SQLite local (nativo, sem configuração) ou MySQL / MariaDB (para redes).</li>
         </ul>
 
         <h3 class="sub-heading" data-i18n="h3_step_by_step">Passo a Passo de Instalação</h3>
         <ol>
-          <li data-i18n="step_1">Baixe o `.jar` correspondente à sua plataforma no <a href="https://modrinth.com/plugin/aegispunish" target="_blank">Modrinth</a> ou <a href="https://github.com/wdprozin2/AegisPunish/releases" target="_blank">GitHub Releases</a>.</li>
-          <li data-i18n="step_2">Coloque o arquivo dentro da pasta <code>plugins/</code> do servidor ou proxy.</li>
-          <li data-i18n="step_3">Inicie o servidor para gerar os arquivos padrão em <code>plugins/AegisPunish/</code>.</li>
-          <li data-i18n="step_4">Ajuste o <code>config.yml</code> (adicione seu webhook do Discord ou credenciais MySQL se aplicável).</li>
-          <li data-i18n="step_5">Execute <code>/aegispunish reload</code> ou reinicie o servidor.</li>
+          <li data-i18n="step_1">Baixe o .jar correspondente à sua plataforma no Modrinth, SpigotMC ou GitHub Releases.</li>
+          <li data-i18n="step_2">Coloque o arquivo dentro da pasta plugins/ do servidor ou proxy.</li>
+          <li data-i18n="step_3">Inicie o servidor para gerar os arquivos padrão em plugins/AegisPunish/.</li>
+          <li data-i18n="step_4">Ajuste o config.yml (adicione seu webhook do Discord ou credenciais MySQL se aplicável).</li>
+          <li data-i18n="step_5">Execute /aegispunish reload ou reinicie o servidor.</li>
         </ol>
 
         <div class="sl-callout note">
@@ -1102,7 +1035,7 @@
           <div class="sl-callout-content">
             <div class="sl-callout-title" data-i18n="callout_note_title">SUPORTE A FOLIA</div>
             <p data-i18n="callout_note_desc">
-              O AegisPunish possui detecção automática de ambiente Folia através do <code>FoliaLib</code>. Tarefas agendadas e eventos de entrada respeitam os limites de tick de regiões isoladas sem causar crashes.
+              O AegisPunish possui detecção automática de ambiente Folia através do FoliaLib. Tarefas agendadas e eventos de entrada respeitam os limites de tick de regiões isoladas sem causar crashes.
             </p>
           </div>
         </div>
@@ -1126,32 +1059,32 @@
             <tbody>
               <tr>
                 <td><strong>Paper / Purpur</strong></td>
-                <td><span class="badge-pill success">100% Nativo</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_native">100% Nativo</span></td>
                 <td data-i18n="td_paper_note">Suporte a MiniMessage, Hex colors, PlaceholderAPI e CommandMap injection.</td>
               </tr>
               <tr>
                 <td><strong>Folia</strong></td>
-                <td><span class="badge-pill success">100% Suportado</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_supported">100% Suportado</span></td>
                 <td data-i18n="td_folia_note">Assíncrono e compatível com multithreading por regiões de chunks.</td>
               </tr>
               <tr>
                 <td><strong>Velocity Proxy</strong></td>
-                <td><span class="badge-pill success">100% Nativo</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_native">100% Nativo</span></td>
                 <td data-i18n="td_velocity_note">Bloqueio antes do encaminhamento aos backends com mensagens ricas Kyori.</td>
               </tr>
               <tr>
                 <td><strong>BungeeCord / Waterfall</strong></td>
-                <td><span class="badge-pill success">100% Nativo</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_native">100% Nativo</span></td>
                 <td data-i18n="td_bungee_note">Compatível com proxies clássicos e controle em rede.</td>
               </tr>
               <tr>
                 <td><strong>Geyser & Floodgate</strong></td>
-                <td><span class="badge-pill success">Detectado Auto</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_auto">Detectado Auto</span></td>
                 <td data-i18n="td_geyser_note">Punição e busca unificadas para jogadores de Bedrock (prefixo '.' ou '*' suportados).</td>
               </tr>
               <tr>
                 <td><strong>SkinsRestorer</strong></td>
-                <td><span class="badge-pill success">Detectado Auto</span></td>
+                <td><span class="badge-pill success" data-i18n="badge_auto">Detectado Auto</span></td>
                 <td data-i18n="td_skins_note">Exibição da cabeça / skin real em menus gráficos (GUIs) e notificações.</td>
               </tr>
             </tbody>
@@ -1171,10 +1104,10 @@
 
         <div class="code-frame">
           <div class="code-header">
-            <span class="code-title"><span class="badge-pill accent">Sintaxe de Duração</span></span>
-            <button class="copy-btn" onclick="copySnippet('1d 12h 30m')"><span>Copiar</span></button>
+            <span class="code-title"><span class="badge-pill accent" data-i18n="syntax_title">Sintaxe de Duração</span></span>
+            <button class="copy-btn" onclick="copySnippet('1d 12h 30m')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
-          <pre><code>s = segundos (ex: 30s)
+          <pre><code id="duration-syntax-code">s = segundos (ex: 30s)
 m = minutos  (ex: 15m)
 h = horas    (ex: 2h)
 d = dias     (ex: 7d)
@@ -1182,16 +1115,16 @@ w = semanas  (ex: 2w)
 mo = meses   (ex: 1mo)
 y = anos     (ex: 1y)
 
-Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
+Exemplo: /tempban Steve 3d12h Uso de Trapaças</code></pre>
         </div>
 
         <h3 class="sub-heading" data-i18n="h3_punish_types">Tipos de Ação</h3>
         <ul>
-          <li><strong>/ban & /tempban:</strong> Impede a entrada no servidor ou rede.</li>
-          <li><strong>/ipban & /tempipban:</strong> Pune tanto o UUID do jogador quanto o endereço de IP associado, impedindo a criação de contas alternativas.</li>
-          <li><strong>/mute & /tempmute:</strong> Bloqueia mensagens no chat global, local e comandos restritos configuráveis.</li>
-          <li><strong>/kick:</strong> Desconecta imediatamente o jogador com aviso sonoro e tela de punição.</li>
-          <li><strong>/warn:</strong> Registra avisos formais. Configuração para acionar banimento automático após atingir N avisos acumulados.</li>
+          <li data-i18n="action_ban"><strong>/ban & /tempban:</strong> Impede a entrada no servidor ou rede permanentemente ou por tempo determinado.</li>
+          <li data-i18n="action_ipban"><strong>/ipban & /tempipban:</strong> Pune tanto o UUID do jogador quanto o endereço de IP associado, impedindo a criação de contas alternativas.</li>
+          <li data-i18n="action_mute"><strong>/mute & /tempmute:</strong> Bloqueia mensagens no chat global, local e comandos restritos configuráveis.</li>
+          <li data-i18n="action_kick"><strong>/kick:</strong> Desconecta imediatamente o jogador com aviso sonoro e tela de punição.</li>
+          <li data-i18n="action_warn"><strong>/warn:</strong> Registra avisos formais. Configuração para acionar banimento automático após atingir N avisos acumulados.</li>
         </ul>
       </section>
 
@@ -1210,17 +1143,17 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
           <div class="sl-callout-content">
             <div class="sl-callout-title" data-i18n="callout_warn_title">PROTEÇÃO CONTRA ABUSO DE STAFF (/ROLLBACKSTAFF)</div>
             <p data-i18n="callout_warn_desc">
-              Caso uma conta de staff seja comprometida ou um membro aja de má-fé aplicando banimentos em massa, administradores podem executar <code>/rollbackstaff &lt;staff&gt; &lt;tempo&gt;</code> para anular todas as ações aplicadas por ele naquele período em uma única transação atômica!
+              Caso uma conta de staff seja comprometida ou um membro cometa abuso aplicando banimentos em massa, administradores podem executar <code>/rollbackstaff &lt;staff&gt; &lt;tempo&gt;</code> para anular todas as ações aplicadas por ele naquele período em uma única transação atômica!
             </p>
           </div>
         </div>
 
         <div class="code-frame">
           <div class="code-header">
-            <span class="code-title">Exemplo de Rollback</span>
-            <button class="copy-btn" onclick="copySnippet('/rollbackstaff StaffAbusivo 2h')"><span>Copiar</span></button>
+            <span class="code-title" data-i18n="rollback_example_title">Exemplo de Rollback</span>
+            <button class="copy-btn" onclick="copySnippet('/rollbackstaff StaffAbusivo 2h')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
-          <pre><code># Anula todas as punições aplicadas por StaffAbusivo nas últimas 2 horas
+          <pre><code id="rollback-code"># Anula todas as punições aplicadas por StaffAbusivo nas últimas 2 horas
 /rollbackstaff StaffAbusivo 2h</code></pre>
         </div>
       </section>
@@ -1232,15 +1165,15 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
           <a href="#staff-hierarchy" class="anchor">#</a>
         </h2>
         <p data-i18n="p_hierarchy_1">
-          O sistema de hierarquia baseado em peso protege os cargos mais altos contra punições aplicadas por cargos inferiores ou ataques internos.
+          O sistema de hierarquia baseado em peso protege os cargos mais altos contra punições aplicadas por cargos inferiores ou disputas internas.
         </p>
 
         <div class="code-frame">
           <div class="code-header">
             <span class="code-title">config.yml &bull; staff-hierarchy</span>
-            <button class="copy-btn" onclick="copySnippet('staff-hierarchy:\n  enabled: true\n  weights:\n    owner: 100\n    admin: 80\n    mod: 50\n    helper: 20')"><span>Copiar</span></button>
+            <button class="copy-btn" onclick="copySnippet('staff-hierarchy:\n  enabled: true\n  weights:\n    owner: 100\n    admin: 80\n    mod: 50\n    helper: 20')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
-          <pre><code>staff-hierarchy:
+          <pre><code id="hierarchy-code">staff-hierarchy:
   enabled: true
   weights:
     owner: 100
@@ -1268,7 +1201,7 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
         <div class="code-frame">
           <div class="code-header">
             <span class="code-title">config.yml &bull; discord</span>
-            <button class="copy-btn" onclick="copySnippet('discord:\n  webhook-url: \"https://discord.com/api/webhooks/...\"\n  embed-color: \"#00D2FF\"')"><span>Copiar</span></button>
+            <button class="copy-btn" onclick="copySnippet('discord:\n  webhook-url: \"https://discord.com/api/webhooks/...\"\n  embed-color: \"#00D2FF\"')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
           <pre><code>discord:
   webhook-url: "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI"
@@ -1296,7 +1229,7 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
           <a href="#auto-updater" class="anchor">#</a>
         </h2>
         <p data-i18n="p_updater_1">
-          O AegisPunish consulta periodicamente a API oficial do <strong>Modrinth</strong> buscando novas versões lançadas. Ao detectar uma versão mais recente, o arquivo é baixado em segundo plano e salvo como substituto para entrar em ação no próximo restart, sem interrupção de gameplay.
+          O AegisPunish consulta periodicamente a API oficial do Modrinth buscando novas versões lançadas. Ao detectar uma versão mais recente, o arquivo é baixado em segundo plano e salvo como substituto para entrar em ação no próximo restart, sem interrupção de gameplay.
         </p>
 
         <div class="sl-callout tip">
@@ -1304,7 +1237,7 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
           <div class="sl-callout-content">
             <div class="sl-callout-title" data-i18n="callout_updater_title">ATUALIZAÇÃO EM TEMPO REAL</div>
             <p data-i18n="callout_updater_desc">
-              Você pode forçar a busca ou download manual a qualquer momento executando <code>/aegispunish update</code> no console ou in-game com a permissão <code>aegispunish.admin</code>.
+              Você pode forçar a busca ou download manual a qualquer momento executando /aegispunish update no console ou in-game com a permissão aegispunish.admin.
             </p>
           </div>
         </div>
@@ -1319,7 +1252,7 @@ Exemplo combinado: /tempban Steve 3d12h Uso de Trapaças</code></pre>
         <div class="code-frame">
           <div class="code-header">
             <span class="code-title">plugins/AegisPunish/config.yml</span>
-            <button class="copy-btn" onclick="copySnippet('# AegisPunish Configuration\nlanguage: pt_BR\ncheck-updates: true')"><span>Copiar</span></button>
+            <button class="copy-btn" onclick="copySnippet('# AegisPunish Configuration\nlanguage: pt_BR\ncheck-updates: true')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
           <pre><code># Idioma padrão das mensagens (pt_BR, en, es)
 language: pt_BR
@@ -1350,7 +1283,7 @@ database:
           <a href="#database" class="anchor">#</a>
         </h2>
         <p data-i18n="p_db_1">
-          Por padrão, o AegisPunish utiliza <strong>SQLite</strong> local com o arquivo <code>aegispunish.db</code>, não necessitando de nenhuma configuração externa. Para sincronização entre servidores via Velocity/BungeeCord, configure o tipo <strong>MYSQL</strong>. Todas as consultas utilizam pools HikariCP e índices para velocidade ultrarrápida.
+          Por padrão, o AegisPunish utiliza SQLite local com o arquivo aegispunish.db, não necessitando de nenhuma configuração externa. Para sincronização entre servidores via Velocity/BungeeCord, configure o tipo MYSQL. Todas as consultas utilizam pools HikariCP e índices para velocidade ultrarrápida.
         </p>
       </section>
 
@@ -1418,74 +1351,74 @@ database:
             </thead>
             <tbody>
               <tr>
-                <td><code>/ban &lt;jogador&gt; [motivo]</code></td>
-                <td><code>aegispunish.ban</code></td>
+                <td><code>/ban &lt;player&gt; [reason]</code></td>
+                <td><code>aegispunish.command.ban</code></td>
                 <td data-i18n="cmd_ban">Bane um jogador permanentemente.</td>
               </tr>
               <tr>
-                <td><code>/tempban &lt;jogador&gt; &lt;tempo&gt; [motivo]</code></td>
-                <td><code>aegispunish.tempban</code></td>
+                <td><code>/tempban &lt;player&gt; &lt;time&gt; [reason]</code></td>
+                <td><code>aegispunish.command.tempban</code></td>
                 <td data-i18n="cmd_tempban">Bane temporariamente com duração.</td>
               </tr>
               <tr>
-                <td><code>/ipban &lt;jogador/ip&gt; [motivo]</code></td>
-                <td><code>aegispunish.ipban</code></td>
+                <td><code>/ipban &lt;player/ip&gt; [reason]</code></td>
+                <td><code>aegispunish.command.ipban</code></td>
                 <td data-i18n="cmd_ipban">Bane permanentemente por endereço IP.</td>
               </tr>
               <tr>
-                <td><code>/unban &lt;jogador/ip&gt;</code></td>
-                <td><code>aegispunish.unban</code></td>
+                <td><code>/unban &lt;player/ip&gt;</code></td>
+                <td><code>aegispunish.command.unban</code></td>
                 <td data-i18n="cmd_unban">Revoga o banimento de um jogador ou IP.</td>
               </tr>
               <tr>
-                <td><code>/mute &lt;jogador&gt; [motivo]</code></td>
-                <td><code>aegispunish.mute</code></td>
+                <td><code>/mute &lt;player&gt; [reason]</code></td>
+                <td><code>aegispunish.command.mute</code></td>
                 <td data-i18n="cmd_mute">Silencia o jogador permanentemente.</td>
               </tr>
               <tr>
-                <td><code>/tempmute &lt;jogador&gt; &lt;tempo&gt; [motivo]</code></td>
-                <td><code>aegispunish.tempmute</code></td>
-                <td data-i18n="cmd_tempmute">Silencia temporariamente.</td>
+                <td><code>/tempmute &lt;player&gt; &lt;time&gt; [reason]</code></td>
+                <td><code>aegispunish.command.tempmute</code></td>
+                <td data-i18n="cmd_tempmute">Silencia temporariamente com duração.</td>
               </tr>
               <tr>
-                <td><code>/unmute &lt;jogador&gt;</code></td>
-                <td><code>aegispunish.unmute</code></td>
+                <td><code>/unmute &lt;player&gt;</code></td>
+                <td><code>aegispunish.command.unmute</code></td>
                 <td data-i18n="cmd_unmute">Desmuta um jogador silenciado.</td>
               </tr>
               <tr>
-                <td><code>/kick &lt;jogador&gt; [motivo]</code></td>
-                <td><code>aegispunish.kick</code></td>
+                <td><code>/kick &lt;player&gt; [reason]</code></td>
+                <td><code>aegispunish.command.kick</code></td>
                 <td data-i18n="cmd_kick">Expulsa o jogador imediatamente do servidor.</td>
               </tr>
               <tr>
-                <td><code>/warn &lt;jogador&gt; [motivo]</code></td>
-                <td><code>aegispunish.warn</code></td>
+                <td><code>/warn &lt;player&gt; [reason]</code></td>
+                <td><code>aegispunish.command.warn</code></td>
                 <td data-i18n="cmd_warn">Aplica um aviso disciplinar.</td>
               </tr>
               <tr>
-                <td><code>/check &lt;jogador&gt;</code></td>
-                <td><code>aegispunish.check</code></td>
+                <td><code>/check &lt;player&gt;</code></td>
+                <td><code>aegispunish.command.check</code></td>
                 <td data-i18n="cmd_check">Abre menu GUI ou lista de status do jogador.</td>
               </tr>
               <tr>
-                <td><code>/history &lt;jogador&gt;</code></td>
-                <td><code>aegispunish.history</code></td>
+                <td><code>/historic &lt;player&gt;</code></td>
+                <td><code>aegispunish.command.historic</code></td>
                 <td data-i18n="cmd_history">Exibe todo o histórico de infrações de um jogador.</td>
               </tr>
               <tr>
-                <td><code>/staffhistory &lt;staff&gt;</code></td>
-                <td><code>aegispunish.staffhistory</code></td>
-                <td data-i18n="cmd_staffhistory">Exibe as punições aplicadas por um membro da equipe.</td>
-              </tr>
-              <tr>
-                <td><code>/rollbackstaff &lt;staff&gt; &lt;tempo&gt;</code></td>
-                <td><code>aegispunish.rollbackstaff</code></td>
+                <td><code>/rollbackstaff &lt;staff&gt; &lt;time&gt;</code></td>
+                <td><code>aegispunish.command.rollbackstaff</code></td>
                 <td data-i18n="cmd_rollbackstaff">Anula em massa punições aplicadas por um staff no intervalo.</td>
               </tr>
               <tr>
                 <td><code>/aegispunish reload</code></td>
                 <td><code>aegispunish.admin</code></td>
                 <td data-i18n="cmd_reload">Recarrega os arquivos de configuração e mensagens.</td>
+              </tr>
+              <tr>
+                <td><code>/aegispunish clearvanilla</code></td>
+                <td><code>aegispunish.admin</code></td>
+                <td data-i18n="cmd_clearvanilla">Remove todos os banimentos residuais do Vanilla / Essentials.</td>
               </tr>
               <tr>
                 <td><code>/aegispunish update</code></td>
@@ -1510,7 +1443,7 @@ database:
         <div class="code-frame">
           <div class="code-header">
             <span class="code-title">Java &bull; AegisPunishAPI</span>
-            <button class="copy-btn" onclick="copySnippet('AegisPunishAPI api = AegisPunishAPIProvider.get();\nboolean isBanned = api.isBanned(uuid);')"><span>Copiar</span></button>
+            <button class="copy-btn" onclick="copySnippet('AegisPunishAPI api = AegisPunishAPIProvider.get();\nboolean isBanned = api.isBanned(uuid);')"><span data-i18n="copy_btn">Copiar</span></button>
           </div>
           <pre><code>// Obter instância do serviço
 AegisPunishAPI api = AegisPunishAPIProvider.get();
@@ -1535,7 +1468,7 @@ public void onPunish(PlayerPunishEvent event) {
       <!-- FOOTER -->
       <footer class="doc-footer">
         <div>
-          &copy; 2026 <strong>AegisPunish</strong> &bull; Inspirado no <strong>LeafPunish</strong>.
+          &copy; 2026 <strong>AegisPunish</strong> &bull; <span data-i18n="footer_inspired">Inspirado no <strong>LeafPunish</strong>.</span>
         </div>
         <div>
           <a href="https://www.spigotmc.org/resources/139053/" target="_blank" rel="noopener">SpigotMC</a> &bull;
@@ -1576,9 +1509,8 @@ public void onPunish(PlayerPunishEvent event) {
 
   </div>
 
-  <!-- ==================== INTERNATIONALIZATION & LOGIC SCRIPT ==================== -->
+  <!-- JAVASCRIPT & INTERNATIONALIZATION -->
   <script>
-    // Dictionary translations for PT_BR, EN, and ES
     const i18nData = {
       pt_BR: {
         meta_title: "AegisPunish Docs | Documentação Oficial",
@@ -1613,13 +1545,16 @@ public void onPunish(PlayerPunishEvent event) {
         card_updater_title: "Auto-Updater Cloud",
         card_updater_desc: "Download e instalação automática direta do Modrinth sem corromper arquivos em execução.",
         h2_overview: "Visão Geral",
-        p_overview_1: "O AegisPunish foi projetado a partir do zero para suprir as demandas críticas de servidores modernos e grandes redes de Minecraft. Conta com cache em memória thread-safe e I/O assíncrono para garantir impacto zero no TPS do servidor.",
+        p_overview_1: "O AegisPunish foi projetado a partir do zero para suprir as demandas críticas de servidores modernos e grandes redes de Minecraft. Conta com cache em memória thread-safe e I/O assíncrono para garantir impacto <strong>zero no TPS</strong> do servidor.",
         callout_tip_title: "DICA DE ARQUITETURA",
         callout_tip_desc: "Em redes com proxy (Velocity ou BungeeCord), o AegisPunish pode rodar diretamente na ponta dos proxies ou sincronizado com múltiplos servidores Paper/Folia compartilhando uma base de dados MySQL.",
         h2_installation: "Instalação & Requisitos",
         p_install_reqs: "Para utilizar o AegisPunish em sua rede ou servidor, verifique os requisitos mínimos:",
+        req_java: "<strong>Java Runtime:</strong> Java 17 ou superior (testado e otimizado para Java 21 LTS).",
+        req_platform: "<strong>Plataforma:</strong> Paper, Folia, Purpur (1.16 até 1.21+), Velocity 3.3+, ou BungeeCord / Waterfall.",
+        req_db: "<strong>Banco de Dados:</strong> SQLite local (nativo, sem configuração) ou MySQL / MariaDB (para redes).",
         h3_step_by_step: "Passo a Passo de Instalação",
-        step_1: "Baixe o .jar correspondente à sua plataforma no Modrinth ou GitHub Releases.",
+        step_1: "Baixe o .jar correspondente à sua plataforma no Modrinth, SpigotMC ou GitHub Releases.",
         step_2: "Coloque o arquivo dentro da pasta plugins/ do servidor ou proxy.",
         step_3: "Inicie o servidor para gerar os arquivos padrão em plugins/AegisPunish/.",
         step_4: "Ajuste o config.yml (adicione seu webhook do Discord ou credenciais MySQL se aplicável).",
@@ -1630,6 +1565,9 @@ public void onPunish(PlayerPunishEvent event) {
         th_platform: "Plataforma / Módulo",
         th_compatibility: "Compatibilidade",
         th_notes: "Observações",
+        badge_native: "100% Nativo",
+        badge_supported: "100% Suportado",
+        badge_auto: "Detectado Auto",
         td_paper_note: "Suporte a MiniMessage, Hex colors, PlaceholderAPI e CommandMap injection.",
         td_folia_note: "Assíncrono e compatível com multithreading por regiões de chunks.",
         td_velocity_note: "Bloqueio antes do encaminhamento aos backends com mensagens ricas Kyori.",
@@ -1637,14 +1575,25 @@ public void onPunish(PlayerPunishEvent event) {
         td_geyser_note: "Punição e busca unificadas para jogadores de Bedrock (prefixo '.' ou '*' suportados).",
         td_skins_note: "Exibição da cabeça / skin real em menus gráficos (GUIs) e notificações.",
         h2_punishments: "Punições Completas",
-        p_punish_desc: "O AegisPunish suporta múltiplos tipos de sanções disciplinares, todas com suporte a motivos customizados e especificações de tempo simplificadas.",
+        p_punish_desc: "O AegisPunish suporta múltiplos tipos de sanções disciplinares, todas com suporte a motivos customizados e especificações de tempo simplificadas:",
+        syntax_title: "Sintaxe de Duração",
+        copy_btn: "Copiar",
+        duration_syntax_code: "s = segundos (ex: 30s)\nm = minutos  (ex: 15m)\nh = horas    (ex: 2h)\nd = dias     (ex: 7d)\nw = semanas  (ex: 2w)\nmo = meses   (ex: 1mo)\ny = anos     (ex: 1y)\n\nExemplo: /tempban Steve 3d12h Uso de Trapaças",
         h3_punish_types: "Tipos de Ação",
+        action_ban: "<strong>/ban &amp; /tempban:</strong> Impede a entrada no servidor ou rede permanentemente ou por tempo determinado.",
+        action_ipban: "<strong>/ipban &amp; /tempipban:</strong> Pune tanto o UUID do jogador quanto o endereço de IP associado, impedindo a criação de contas alternativas.",
+        action_mute: "<strong>/mute &amp; /tempmute:</strong> Bloqueia mensagens no chat global, local e comandos restritos configuráveis.",
+        action_kick: "<strong>/kick:</strong> Desconecta imediatamente o jogador com aviso sonoro e tela de punição.",
+        action_warn: "<strong>/warn:</strong> Registra avisos formais. Configuração para acionar banimento automático após atingir N avisos acumulados.",
         h2_history: "Histórico & Rollbacks",
         p_history_1: "Nenhuma punição é perdida ou deletada permanentemente sem rastreio. Quando uma punição é revogada com /unban ou /unmute, seu estado no banco de dados é alterado para inativo e o operador que realizou a anulação fica registrado.",
         callout_warn_title: "PROTEÇÃO CONTRA ABUSO DE STAFF (/ROLLBACKSTAFF)",
-        callout_warn_desc: "Caso uma conta de staff seja comprometida ou um membro aja de má-fé aplicando banimentos em massa, administradores podem executar /rollbackstaff <staff> <tempo> para anular todas as ações aplicadas por ele naquele período em uma única transação atômica!",
+        callout_warn_desc: "Caso uma conta de staff seja comprometida ou um membro cometa abuso aplicando banimentos em massa, administradores podem executar /rollbackstaff <staff> <tempo> para anular todas as ações aplicadas por ele naquele período em uma única transação atômica!",
+        rollback_example_title: "Exemplo de Rollback",
+        rollback_code: "# Anula todas as punições aplicadas por StaffAbusivo nas últimas 2 horas\n/rollbackstaff StaffAbusivo 2h",
         h2_hierarchy: "Hierarquia de Staff (Anti-Abuse)",
-        p_hierarchy_1: "O sistema de hierarquia baseado em peso protege os cargos mais altos contra punições aplicadas por cargos inferiores ou ataques internos.",
+        p_hierarchy_1: "O sistema de hierarquia baseado em peso protege os cargos mais altos contra punições aplicadas por cargos inferiores ou disputas internas.",
+        hierarchy_code: "staff-hierarchy:\n  enabled: true\n  weights:\n    owner: 100\n    admin: 80\n    mod: 50\n    helper: 20\n\n# Regras de negócio:\n# 1. Um membro com peso 50 (Mod) NÃO pode punir quem possui peso 80 (Admin).\n# 2. Um membro da staff NÃO pode punir a si mesmo.\n# 3. Punições ignoram restrições se o emissor for o Console (peso infinito).",
         h2_discord: "Discord Webhooks",
         p_discord_1: "Integração nativa com canais de auditoria do Discord. Quando uma punição ocorre ou é revogada, um embed profissional é enviado instantaneamente através de requisições HTTP assíncronas.",
         h2_updater: "Auto-Updater Modrinth",
@@ -1671,18 +1620,19 @@ public void onPunish(PlayerPunishEvent event) {
         cmd_ipban: "Bane permanentemente por endereço IP.",
         cmd_unban: "Revoga o banimento de um jogador ou IP.",
         cmd_mute: "Silencia o jogador permanentemente.",
-        cmd_tempmute: "Silencia temporariamente.",
+        cmd_tempmute: "Silencia temporariamente com duração.",
         cmd_unmute: "Desmuta um jogador silenciado.",
         cmd_kick: "Expulsa o jogador imediatamente do servidor.",
         cmd_warn: "Aplica um aviso disciplinar.",
         cmd_check: "Abre menu GUI ou lista de status do jogador.",
         cmd_history: "Exibe todo o histórico de infrações de um jogador.",
-        cmd_staffhistory: "Exibe as punições aplicadas por um membro da equipe.",
         cmd_rollbackstaff: "Anula em massa punições aplicadas por um staff no intervalo.",
         cmd_reload: "Recarrega os arquivos de configuração e mensagens.",
+        cmd_clearvanilla: "Remove todos os banimentos residuais do Vanilla / Essentials.",
         cmd_update: "Checa e baixa atualizações via Modrinth.",
         h2_api: "Developer API & Eventos",
         p_api_desc: "O AegisPunish oferece uma API moderna em Java para desenvolvedores externos criarem integrações, bots ou painéis web.",
+        footer_inspired: "Inspirado no <strong>LeafPunish</strong>.",
         toc_title: "Nesta Página",
         toc_overview: "Visão Geral",
         toc_installation: "Instalação & Requisitos",
@@ -1730,14 +1680,17 @@ public void onPunish(PlayerPunishEvent event) {
         card_updater_title: "Cloud Auto-Updater",
         card_updater_desc: "Automatic download and hot-install directly from Modrinth without file-lock issues.",
         h2_overview: "Overview",
-        p_overview_1: "AegisPunish is designed from the ground up to handle the demanding requirements of modern servers and large Minecraft networks. Featuring a thread-safe in-memory cache and async I/O to guarantee zero TPS impact on your server.",
+        p_overview_1: "AegisPunish is designed from the ground up to handle the demanding requirements of modern servers and large Minecraft networks. Featuring a thread-safe in-memory cache and async I/O to guarantee <strong>zero TPS impact</strong> on your server.",
         callout_tip_title: "ARCHITECTURE TIP",
         callout_tip_desc: "On proxied networks (Velocity or BungeeCord), AegisPunish can run directly at the edge or synchronized across multiple Paper/Folia servers sharing a single MySQL database.",
         h2_installation: "Installation & Requirements",
         p_install_reqs: "To use AegisPunish on your server or network, ensure minimum requirements are met:",
+        req_java: "<strong>Java Runtime:</strong> Java 17 or higher (tested and optimized for Java 21 LTS).",
+        req_platform: "<strong>Platform:</strong> Paper, Folia, Purpur (1.16 up to 1.21+), Velocity 3.3+, or BungeeCord / Waterfall.",
+        req_db: "<strong>Database:</strong> Local SQLite (zero setup) or MySQL / MariaDB (for multi-server networks).",
         h3_step_by_step: "Installation Steps",
-        step_1: "Download the platform jar from Modrinth or GitHub Releases.",
-        step_2: "Place the jar inside your server or proxy plugins/ folder.",
+        step_1: "Download the platform jar from Modrinth, SpigotMC, or GitHub Releases.",
+        step_2: "Place the jar file inside your server or proxy plugins/ folder.",
         step_3: "Start the server to generate default files in plugins/AegisPunish/.",
         step_4: "Configure config.yml (add your Discord webhook URL or MySQL credentials if applicable).",
         step_5: "Run /aegispunish reload or restart your server.",
@@ -1747,6 +1700,9 @@ public void onPunish(PlayerPunishEvent event) {
         th_platform: "Platform / Module",
         th_compatibility: "Compatibility",
         th_notes: "Notes",
+        badge_native: "100% Native",
+        badge_supported: "100% Supported",
+        badge_auto: "Auto Detected",
         td_paper_note: "Support for MiniMessage, Hex colors, PlaceholderAPI, and CommandMap injection.",
         td_folia_note: "Fully asynchronous and multithreaded per-region chunk safe.",
         td_velocity_note: "Edge filtering before forwarding to backends with rich Kyori messages.",
@@ -1754,14 +1710,25 @@ public void onPunish(PlayerPunishEvent event) {
         td_geyser_note: "Unified punishment and search for Bedrock players (prefix '.' or '*' supported).",
         td_skins_note: "Displays actual player skull / skin in GUIs and notifications.",
         h2_punishments: "Complete Punishments",
-        p_punish_desc: "AegisPunish supports multiple disciplinary action types, all with custom reasons and streamlined duration syntax.",
+        p_punish_desc: "AegisPunish supports multiple disciplinary action types, all with custom reasons and streamlined duration syntax:",
+        syntax_title: "Duration Syntax",
+        copy_btn: "Copy",
+        duration_syntax_code: "s = seconds  (e.g. 30s)\nm = minutes  (e.g. 15m)\nh = hours    (e.g. 2h)\nd = days     (e.g. 7d)\nw = weeks    (e.g. 2w)\nmo = months  (e.g. 1mo)\ny = years    (e.g. 1y)\n\nExample: /tempban Steve 3d12h Cheating",
         h3_punish_types: "Action Types",
+        action_ban: "<strong>/ban &amp; /tempban:</strong> Prevents connection to the server or network permanently or for a specified duration.",
+        action_ipban: "<strong>/ipban &amp; /tempipban:</strong> Punishes both player UUID and associated IP address, blocking alternative accounts.",
+        action_mute: "<strong>/mute &amp; /tempmute:</strong> Silences chat messages and configurable restricted commands.",
+        action_kick: "<strong>/kick:</strong> Immediately disconnects the player with a custom punishment screen.",
+        action_warn: "<strong>/warn:</strong> Issues formal warnings. Can trigger automatic bans after accumulating N warnings.",
         h2_history: "History & Rollbacks",
         p_history_1: "No punishment is permanently lost or untracked. When a punishment is revoked using /unban or /unmute, its database status is marked inactive and the revoking staff member is recorded.",
         callout_warn_title: "ANTI-ROGUE STAFF PROTECTION (/ROLLBACKSTAFF)",
-        callout_warn_desc: "If a staff account is hacked or acts maliciously with mass bans, administrators can run /rollbackstaff <staff> <duration> to rollback all actions by that staff member in a single atomic transaction!",
+        callout_warn_desc: "If a staff account is compromised or acts maliciously with mass bans, administrators can run /rollbackstaff <staff> <duration> to rollback all actions by that staff member in a single atomic transaction!",
+        rollback_example_title: "Rollback Example",
+        rollback_code: "# Rollbacks all punishments issued by RogueStaff in the last 2 hours\n/rollbackstaff RogueStaff 2h",
         h2_hierarchy: "Staff Hierarchy (Anti-Abuse)",
         p_hierarchy_1: "The weight-based hierarchy system protects upper staff ranks against unauthorized punishments by lower ranks or internal disputes.",
+        hierarchy_code: "staff-hierarchy:\n  enabled: true\n  weights:\n    owner: 100\n    admin: 80\n    mod: 50\n    helper: 20\n\n# Business rules:\n# 1. Staff with weight 50 (Mod) CANNOT punish someone with weight 80 (Admin).\n# 2. Staff members CANNOT punish themselves.\n# 3. Punishments bypass rank checks if issued by Console (infinite weight).",
         h2_discord: "Discord Webhooks",
         p_discord_1: "Native integration with Discord audit log channels. When a punishment occurs or is revoked, a rich embed is dispatched asynchronously over HTTP.",
         h2_updater: "Modrinth Auto-Updater",
@@ -1794,12 +1761,13 @@ public void onPunish(PlayerPunishEvent event) {
         cmd_warn: "Issue a formal warning to a player.",
         cmd_check: "Open player lookup GUI or status report.",
         cmd_history: "View complete punishment history of a player.",
-        cmd_staffhistory: "View punishments issued by a staff member.",
         cmd_rollbackstaff: "Rollback all punishments issued by a staff member in a timeframe.",
         cmd_reload: "Reload configuration files and messages.",
+        cmd_clearvanilla: "Purge all residual Minecraft Vanilla & Essentials bans.",
         cmd_update: "Check and download updates from Modrinth.",
         h2_api: "Developer API & Events",
         p_api_desc: "AegisPunish provides a modern Java API for third-party developers, web dashboards, and custom bots.",
+        footer_inspired: "Inspired by <strong>LeafPunish</strong>.",
         toc_title: "On this page",
         toc_overview: "Overview",
         toc_installation: "Installation & Requirements",
@@ -1847,13 +1815,16 @@ public void onPunish(PlayerPunishEvent event) {
         card_updater_title: "Actualización en la Nube",
         card_updater_desc: "Descarga e instalación automática directa desde Modrinth sin bloquear archivos en uso.",
         h2_overview: "Visión General",
-        p_overview_1: "AegisPunish está diseñado para responder a las exigencias críticas de servidores modernos y grandes redes de Minecraft. Cuenta con caché en memoria segura para hilos e I/O asíncrono garantizando cero impacto en el TPS.",
+        p_overview_1: "AegisPunish está diseñado para responder a las exigencias críticas de servidores modernos y grandes redes de Minecraft. Cuenta con caché en memoria segura para hilos e I/O asíncrono garantizando <strong>cero impacto en el TPS</strong>.",
         callout_tip_title: "CONSEJO DE ARQUITECTURA",
         callout_tip_desc: "En redes con proxy (Velocity o BungeeCord), AegisPunish puede ejecutarse directamente en los proxies o sincronizado entre múltiples servidores Paper/Folia mediante MySQL.",
         h2_installation: "Instalación & Requisitos",
         p_install_reqs: "Para utilizar AegisPunish en tu servidor o red, verifica los siguientes requisitos mínimos:",
+        req_java: "<strong>Java Runtime:</strong> Java 17 o superior (optimizado para Java 21 LTS).",
+        req_platform: "<strong>Plataforma:</strong> Paper, Folia, Purpur (1.16 hasta 1.21+), Velocity 3.3+, o BungeeCord / Waterfall.",
+        req_db: "<strong>Base de Datos:</strong> SQLite local (sin configuración previa) o MySQL / MariaDB (para redes).",
         h3_step_by_step: "Pasos de Instalación",
-        step_1: "Descarga el jar correspondiente a tu plataforma desde Modrinth o GitHub Releases.",
+        step_1: "Descarga el jar correspondiente a tu plataforma desde Modrinth, SpigotMC o GitHub Releases.",
         step_2: "Coloca el archivo dentro de la carpeta plugins/ del servidor o proxy.",
         step_3: "Inicia el servidor para generar los archivos en plugins/AegisPunish/.",
         step_4: "Ajusta config.yml (añade la URL de webhook de Discord o credenciales MySQL si aplica).",
@@ -1864,6 +1835,9 @@ public void onPunish(PlayerPunishEvent event) {
         th_platform: "Plataforma / Módulo",
         th_compatibility: "Compatibilidad",
         th_notes: "Notas",
+        badge_native: "100% Nativo",
+        badge_supported: "100% Soportado",
+        badge_auto: "Detectado Auto",
         td_paper_note: "Soporte para MiniMessage, colores Hex, PlaceholderAPI e inyección en CommandMap.",
         td_folia_note: "Completamente asíncrono y seguro para regiones multihilo.",
         td_velocity_note: "Bloqueo antes de enviar a los backends con mensajes ricos Kyori.",
@@ -1871,14 +1845,25 @@ public void onPunish(PlayerPunishEvent event) {
         td_geyser_note: "Sanción y búsqueda unificadas para jugadores de Bedrock (prefijos '.' y '*' soportados).",
         td_skins_note: "Muestra la cabeza / skin real del jugador en menús gráficos y avisos.",
         h2_punishments: "Sanciones Completas",
-        p_punish_desc: "AegisPunish admite múltiples tipos de sanciones disciplinarias, con motivos personalizados y especificación de tiempos abreviada.",
+        p_punish_desc: "AegisPunish admite múltiples tipos de sanciones disciplinarias, con motivos personalizados y especificación de tiempos abreviada:",
+        syntax_title: "Sintaxis de Duración",
+        copy_btn: "Copiar",
+        duration_syntax_code: "s = segundos (ej: 30s)\nm = minutos  (ej: 15m)\nh = horas    (ej: 2h)\nd = días     (ej: 7d)\nw = semanas  (ej: 2w)\nmo = meses   (ej: 1mo)\ny = años     (ej: 1y)\n\nEjemplo: /tempban Steve 3d12h Uso de Trampas",
         h3_punish_types: "Tipos de Acción",
+        action_ban: "<strong>/ban &amp; /tempban:</strong> Impide la entrada al servidor o red de forma permanente o por tiempo especificado.",
+        action_ipban: "<strong>/ipban &amp; /tempipban:</strong> Sanciona tanto el UUID como la IP asociada, evitando cuentas alternativas.",
+        action_mute: "<strong>/mute &amp; /tempmute:</strong> Bloquea el chat y comandos restringidos configurables.",
+        action_kick: "<strong>/kick:</strong> Desconecta inmediatamente al jugador con una pantalla de sanción.",
+        action_warn: "<strong>/warn:</strong> Aplica advertencias formales con baneo automático al acumular N advertencias.",
         h2_history: "Historial & Reversión",
         p_history_1: "Ninguna sanción se pierde ni se borra permanentemente sin registro. Al revocar con /unban o /unmute, su estado en la base de dados pasa a inactivo registrando al operador responsable.",
         callout_warn_title: "PROTECCIÓN CONTRA ABUSOS DEL STAFF (/ROLLBACKSTAFF)",
         callout_warn_desc: "¿Una cuenta de staff fue comprometida o cometió abuso con baneos masivos? Los administradores pueden ejecutar /rollbackstaff <staff> <tiempo> para revertir todas sus acciones en una sola transacción.",
+        rollback_example_title: "Ejemplo de Rollback",
+        rollback_code: "# Anula todas las sanciones aplicadas por StaffAbusivo en las últimas 2 horas\n/rollbackstaff StaffAbusivo 2h",
         h2_hierarchy: "Jerarquía de Staff (Anti-Abuse)",
         p_hierarchy_1: "El sistema de jerarquía por peso protege a rangos superiores contra sanciones indebidas por rangos inferiores.",
+        hierarchy_code: "staff-hierarchy:\n  enabled: true\n  weights:\n    owner: 100\n    admin: 80\n    mod: 50\n    helper: 20\n\n# Reglas de negocio:\n# 1. Un miembro con peso 50 (Mod) NO puede sancionar a quien posee peso 80 (Admin).\n# 2. Un miembro del staff NO puede sancionarse a sí mismo.\n# 3. Sanciones del Console ignoran restricciones (peso infinito).",
         h2_discord: "Discord Webhooks",
         p_discord_1: "Integración nativa con canales de auditoría de Discord. Notificaciones instantáneas con diseño embed vía peticiones HTTP asíncronas.",
         h2_updater: "Auto-Updater Modrinth",
@@ -1911,15 +1896,16 @@ public void onPunish(PlayerPunishEvent event) {
         cmd_warn: "Aplica una advertencia formal.",
         cmd_check: "Abre el menú de información o estado del jugador.",
         cmd_history: "Muestra el historial completo de infracciones.",
-        cmd_staffhistory: "Muestra las sanciones aplicadas por un miembro del staff.",
         cmd_rollbackstaff: "Revierte masivamente sanciones aplicadas por un staff en un periodo.",
         cmd_reload: "Recarga la configuración y los mensajes.",
+        cmd_clearvanilla: "Elimina todos los baneos residuales de Vanilla y Essentials.",
         cmd_update: "Comprueba y descarga actualizaciones desde Modrinth.",
         h2_api: "Developer API & Eventos",
         p_api_desc: "AegisPunish proporciona una moderna API Java para desarrolladores, paneles web y bots.",
+        footer_inspired: "Inspirado en <strong>LeafPunish</strong>.",
         toc_title: "En esta página",
         toc_overview: "Visión General",
-        toc_installation: "Instalación & Requisitos",
+        toc_installation: "Instalação & Requisitos",
         toc_compatibility: "Plataformas",
         toc_punishments: "Sanciones Completas",
         toc_history: "Historial & Reversión",
@@ -1933,21 +1919,30 @@ public void onPunish(PlayerPunishEvent event) {
       }
     };
 
-    // Apply translations function
     function applyLanguage(lang) {
       const data = i18nData[lang] || i18nData.pt_BR;
       document.documentElement.lang = lang === 'pt_BR' ? 'pt-BR' : lang;
       
-      // Update title & description
       document.title = data.meta_title;
       const metaDesc = document.getElementById('meta-desc');
       if (metaDesc) metaDesc.content = data.meta_desc;
 
-      // Update Search Placeholder
       const searchPlaceholder = document.getElementById('search-placeholder-text');
       if (searchPlaceholder) searchPlaceholder.textContent = data.search_placeholder;
       const searchInput = document.getElementById('search-input');
       if (searchInput) searchInput.placeholder = data.search_placeholder;
+
+      // Update duration code frame
+      const durationCode = document.getElementById('duration-syntax-code');
+      if (durationCode && data.duration_syntax_code) durationCode.textContent = data.duration_syntax_code;
+
+      // Update rollback code frame
+      const rollbackCode = document.getElementById('rollback-code');
+      if (rollbackCode && data.rollback_code) rollbackCode.textContent = data.rollback_code;
+
+      // Update hierarchy code frame
+      const hierarchyCode = document.getElementById('hierarchy-code');
+      if (hierarchyCode && data.hierarchy_code) hierarchyCode.textContent = data.hierarchy_code;
 
       // Update all elements with data-i18n
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1960,13 +1955,11 @@ public void onPunish(PlayerPunishEvent event) {
       localStorage.setItem('aegis_docs_lang', lang);
     }
 
-    // Language Dropdown Listener
     const langSelect = document.getElementById('lang-select');
     langSelect.addEventListener('change', (e) => {
       applyLanguage(e.target.value);
     });
 
-    // Theme Switcher (Dark / Light)
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeMoon = document.getElementById('theme-moon');
     const themeSun = document.getElementById('theme-sun');
@@ -1988,16 +1981,14 @@ public void onPunish(PlayerPunishEvent event) {
       setTheme(current === 'dark' ? 'light' : 'dark');
     });
 
-    // Copy to clipboard helper
     function copySnippet(text) {
       navigator.clipboard.writeText(text).then(() => {
-        alert("Copiado para a área de transferência!");
+        alert("Copiado!");
       }).catch(err => {
         console.error("Falha ao copiar: ", err);
       });
     }
 
-    // Mobile Sidebar toggle
     const sidebarToggle = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
     if (sidebarToggle && sidebar) {
@@ -2006,7 +1997,6 @@ public void onPunish(PlayerPunishEvent event) {
       });
     }
 
-    // ScrollSpy for TOC & Sidebar active link
     const sections = document.querySelectorAll('section[id]');
     const tocLinks = document.querySelectorAll('.toc-link');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
@@ -2037,26 +2027,25 @@ public void onPunish(PlayerPunishEvent event) {
       }
     });
 
-    // Search Modal Functionality (Ctrl+K or button)
     const searchModal = document.getElementById('search-modal');
     const openSearchBtn = document.getElementById('open-search-btn');
     const searchInput = document.getElementById('search-input');
     const searchResultsList = document.getElementById('search-results-list');
 
     const searchableItems = [
-      { title: "Visão Geral & Arquitetura", anchor: "#overview", snippet: "Cache em memória thread-safe e zero TPS loss." },
-      { title: "Instalação & FoliaLib", anchor: "#installation", snippet: "Suporte nativo para Java 17+, Paper, Purpur e Folia." },
-      { title: "Plataformas (Velocity / Bungee)", anchor: "#compatibility", snippet: "Compatibilidade com proxies e Floodgate/Geyser Bedrock." },
-      { title: "/ban e /tempban", anchor: "#punishments", snippet: "Comandos para suspender jogadores permanentemente ou temporariamente." },
-      { title: "/ipban e /tempipban", anchor: "#punishments", snippet: "Bloqueio de endereço IP contra contas alternativas (alts)." },
-      { title: "/mute e /tempmute", anchor: "#punishments", snippet: "Silenciar jogadores no chat global e comandos." },
-      { title: "/rollbackstaff", anchor: "#history-rollback", snippet: "Reversão em massa de punições aplicadas por staff abusivo." },
-      { title: "Hierarquia de Staff", anchor: "#staff-hierarchy", snippet: "Pesos configuráveis contra abuso de cargos superiores." },
-      { title: "Discord Webhooks", anchor: "#discord-webhooks", snippet: "Notificações de auditoria com embeds em canais do Discord." },
+      { title: "Visão Geral / Overview", anchor: "#overview", snippet: "Cache em memória thread-safe e zero TPS loss." },
+      { title: "Instalação / Setup", anchor: "#installation", snippet: "Paper, Purpur, Folia, Velocity e BungeeCord." },
+      { title: "Plataformas / Platforms", anchor: "#compatibility", snippet: "Geyser, Floodgate Bedrock e SkinsRestorer." },
+      { title: "/ban & /tempban", anchor: "#punishments", snippet: "Banir jogadores permanentemente ou temporariamente." },
+      { title: "/ipban & /tempipban", anchor: "#punishments", snippet: "Bloqueio por endereço IP contra contas alternativas." },
+      { title: "/mute & /tempmute", anchor: "#punishments", snippet: "Silenciar jogadores no chat e comandos." },
+      { title: "/rollbackstaff", anchor: "#history-rollback", snippet: "Reversão em massa de ações de staff abusivo." },
+      { title: "Hierarquia de Staff / Hierarchy", anchor: "#staff-hierarchy", snippet: "Pesos configuráveis contra abuso de superiores." },
+      { title: "Discord Webhooks", anchor: "#discord-webhooks", snippet: "Notificações com embeds ricos em canais do Discord." },
       { title: "Auto-Updater Modrinth", anchor: "#auto-updater", snippet: "Download automático de novas versões sem reiniciar." },
-      { title: "Banco de Dados MySQL & SQLite", anchor: "#database", snippet: "Pools HikariCP de alta velocidade para redes." },
+      { title: "Banco de Dados / Database", anchor: "#database", snippet: "Pools HikariCP de alta performance SQLite e MySQL." },
       { title: "PlaceholderAPI", anchor: "#placeholders", snippet: "%aegispunish_is_banned%, %aegispunish_warns_count%." },
-      { title: "Developer API & Eventos", anchor: "#developer-api", snippet: "AegisPunishAPI e PlayerPunishEvent em Java." }
+      { title: "Developer API", anchor: "#developer-api", snippet: "AegisPunishAPI e PlayerPunishEvent em Java." }
     ];
 
     function openSearch() {
@@ -2066,9 +2055,7 @@ public void onPunish(PlayerPunishEvent event) {
       setTimeout(() => searchInput.focus(), 50);
     }
 
-    function closeSearch() {
-      searchModal.classList.remove('open');
-    }
+    function closeSearch() { searchModal.classList.remove('open'); }
 
     function renderSearchResults(query) {
       searchResultsList.innerHTML = '';
@@ -2078,7 +2065,7 @@ public void onPunish(PlayerPunishEvent event) {
         : searchableItems.slice(0, 6);
 
       if (results.length === 0) {
-        searchResultsList.innerHTML = '<div style="padding:16px;text-align:center;color:var(--sl-color-text-muted)">Nenhum resultado encontrado.</div>';
+        searchResultsList.innerHTML = '<div style="padding:16px;text-align:center;color:var(--sl-color-text-muted)">Nenhum resultado / No results.</div>';
         return;
       }
 
@@ -2114,7 +2101,6 @@ public void onPunish(PlayerPunishEvent event) {
       }
     });
 
-    // Initialize saved language and theme on page load
     window.addEventListener('DOMContentLoaded', () => {
       const savedLang = localStorage.getItem('aegis_docs_lang') || 'pt_BR';
       langSelect.value = savedLang;
