@@ -187,16 +187,49 @@ public class PunishCommand implements CommandExecutor, TabCompleter {
 
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
+        String cmd = command.getName().toLowerCase(Locale.ROOT);
         if (args.length == 1) {
+            String prefix = args[0].toLowerCase(Locale.ROOT);
             List<String> list = new ArrayList<>();
+
+            if (cmd.equals("unban") || cmd.equals("pardon")) {
+                Set<String> bannedNames = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+                bannedNames.addAll(punishmentManager.getActiveBannedNames());
+
+                try {
+                    for (var entry : Bukkit.getBanList(org.bukkit.BanList.Type.NAME).getBanEntries()) {
+                        bannedNames.add(entry.getTarget());
+                    }
+                } catch (Throwable ignored) {}
+
+                for (String name : bannedNames) {
+                    if (name.toLowerCase(Locale.ROOT).startsWith(prefix)) {
+                        list.add(name);
+                    }
+                }
+                return list;
+            }
+
+            if (cmd.equals("unmute")) {
+                Set<String> mutedNames = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+                mutedNames.addAll(punishmentManager.getActiveMutedNames());
+
+                for (String name : mutedNames) {
+                    if (name.toLowerCase(Locale.ROOT).startsWith(prefix)) {
+                        list.add(name);
+                    }
+                }
+                return list;
+            }
+
             for (Player p : Bukkit.getOnlinePlayers()) {
-                if (p.getName().toLowerCase().startsWith(args[0].toLowerCase())) {
+                if (p.getName().toLowerCase(Locale.ROOT).startsWith(prefix)) {
                     list.add(p.getName());
                 }
             }
             return list;
         }
-        if (args.length == 2 && (command.getName().contains("temp"))) {
+        if (args.length == 2 && (cmd.contains("temp"))) {
             return List.of("1h", "1d", "7d", "30d");
         }
         return Collections.emptyList();

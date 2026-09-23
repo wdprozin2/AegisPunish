@@ -12,14 +12,21 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class PunishmentCacheManager {
 
     private final DatabaseManager databaseManager;
     private final Logger logger;
+
+    private final Set<String> activeBannedNames = ConcurrentHashMap.newKeySet();
+    private final Set<String> activeMutedNames = ConcurrentHashMap.newKeySet();
 
     private final Cache<UUID, Punishment> activeBansByUuid = Caffeine.newBuilder()
             .expireAfterWrite(Duration.ofMinutes(10))
@@ -63,10 +70,14 @@ public class PunishmentCacheManager {
             }
             if (p.getTargetName() != null && !p.getTargetName().isBlank()) {
                 activeBansByName.put(p.getTargetName().toLowerCase(java.util.Locale.ROOT), p);
+                activeBannedNames.add(p.getTargetName());
             }
         } else if (p.getType() == PunishmentType.MUTE || p.getType() == PunishmentType.TEMPMUTE) {
             if (p.getTargetUuid() != null) {
                 activeMutesByUuid.put(p.getTargetUuid(), p);
+            }
+            if (p.getTargetName() != null && !p.getTargetName().isBlank()) {
+                activeMutedNames.add(p.getTargetName());
             }
         } else if (p.getType() == PunishmentType.WARN) {
             if (p.getTargetUuid() != null) {
@@ -80,10 +91,77 @@ public class PunishmentCacheManager {
     }
 
     public void invalidateById(long id) {
-        activeBansByUuid.asMap().values().removeIf(p -> p.getId() == id);
+        activeBansByUuid.asMap().values().removeIf(p -> {
+            if (p.getId() == id) {
+                if (p.getTargetName() != null) activeBannedNames.removeIf(n -> n.equalsIgnoreCase(p.getTargetName()));
+                return true;
+            }
+            return false;
+        });
         activeBansByIp.asMap().values().removeIf(p -> p.getId() == id);
-        activeBansByName.asMap().values().removeIf(p -> p.getId() == id);
-        activeMutesByUuid.asMap().values().removeIf(p -> p.getId() == id);
+        activeBansByName.asMap().values().removeIf(p -> {
+            if (p.getId() == id) {
+                if (p.getTargetName() != null) activeBannedNames.removeIf(n -> n.equalsIgnoreCase(p.getTargetName()));
+                return true;
+            }
+            return false;
+        });
+        activeMutesByUuid.asMap().values().removeIf(p -> {
+            if (p.getId() == id) {
+                if (p.getTargetName() != null) activeMutedNames.removeIf(n -> n.equalsIgnoreCase(p.getTargetName()));
+                return true;
+            }
+            return false;
+        });
+    }
+
+    public void removeBannedName(String name) {
+        if (name != null) {
+            activeBannedNames.removeIf(n -> n.equalsIgnoreCase(name));
+        }
+    }
+
+    public void removeMutedName(String name) {
+        if (name != null) {
+            activeMutedNames.removeIf(n -> n.equalsIgnoreCase(name));
+        }
+    }
+
+    public Set<String> getActiveBannedNames() {
+        return Collections.unmodifiableSet(activeBannedNames);
+    }
+
+    public Set<String> getActiveMutedNames() {
+        return Collections.unmodifiableSet(activeMutedNames);
+    }
+
+    public void refreshActivePunishedNames() {
+        String banSql = "SELECT DISTINCT target_name FROM punishments WHERE active = TRUE AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP) AND type IN ('BAN', 'TEMPBAN', 'IPBAN', 'TEMPIPBAN') AND target_name IS NOT NULL";
+        String muteSql = "SELECT DISTINCT target_name FROM punishments WHERE active = TRUE AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP) AND type IN ('MUTE', 'TEMPMUTE') AND target_name IS NOT NULL";
+
+        try (Connection conn = databaseManager.getConnection()) {
+            try (PreparedStatement ps = conn.prepareStatement(banSql); ResultSet rs = ps.executeQuery()) {
+                Set<String> bans = new HashSet<>();
+                while (rs.next()) {
+                    String name = rs.getString("target_name");
+                    if (name != null && !name.isBlank()) bans.add(name);
+                }
+                activeBannedNames.clear();
+                activeBannedNames.addAll(bans);
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(muteSql); ResultSet rs = ps.executeQuery()) {
+                Set<String> mutes = new HashSet<>();
+                while (rs.next()) {
+                    String name = rs.getString("target_name");
+                    if (name != null && !name.isBlank()) mutes.add(name);
+                }
+                activeMutedNames.clear();
+                activeMutedNames.addAll(mutes);
+            }
+        } catch (Exception e) {
+            logger.fine("Falha ao recarregar nomes punidos ativos: " + e.getMessage());
+        }
     }
 
     public Optional<Punishment> findActiveIpBan(String ip) {

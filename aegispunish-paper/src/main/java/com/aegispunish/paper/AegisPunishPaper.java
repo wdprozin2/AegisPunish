@@ -110,6 +110,8 @@ public class AegisPunishPaper extends JavaPlugin {
             Bukkit.getScheduler().runTaskTimerAsynchronously(this, new StatusBroadcastTask(databaseManager), 20L * 60, delay);
         }
 
+        Bukkit.getScheduler().runTaskTimerAsynchronously(this, punishmentManager::refreshActivePunishedNames, 20L, 20L * 60);
+
         int pluginId = 34230;
         new com.aegispunish.paper.metrics.Metrics(this, pluginId);
 

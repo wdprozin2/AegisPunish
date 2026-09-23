@@ -326,4 +326,16 @@ public class PunishmentManager implements AegisPunishAPI {
             }
         });
     }
+
+    public java.util.Set<String> getActiveBannedNames() {
+        return cacheManager.getActiveBannedNames();
+    }
+
+    public java.util.Set<String> getActiveMutedNames() {
+        return cacheManager.getActiveMutedNames();
+    }
+
+    public void refreshActivePunishedNames() {
+        cacheManager.refreshActivePunishedNames();
+    }
 }

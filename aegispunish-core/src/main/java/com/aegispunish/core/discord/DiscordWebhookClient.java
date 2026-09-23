@@ -134,7 +134,6 @@ public class DiscordWebhookClient {
 
                 JsonArray fields = new JsonArray();
                 fields.add(createField("Punição", formatPunishType(p), true));
-                fields.add(createField("IP", targetIp, true));
 
                 embed.add("fields", fields);
 
