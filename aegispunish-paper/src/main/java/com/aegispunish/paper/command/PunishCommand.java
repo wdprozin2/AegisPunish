@@ -97,11 +97,19 @@ public class PunishCommand implements CommandExecutor, TabCompleter {
 
             boolean isBan = !cmd.equals("unmute");
             final String finalTarget = targetName;
+
+            if (isBan) {
+                try {
+                    Bukkit.getBanList(org.bukkit.BanList.Type.NAME).pardon(finalTarget);
+                    Bukkit.getBanList(org.bukkit.BanList.Type.IP).pardon(finalTarget);
+                } catch (Throwable ignored) {}
+            }
+
             punishmentManager.revokeByTarget(targetName, isBan, punisherUuid, punisherName, reason).thenAccept(ok -> {
                 if (ok) {
                     sender.sendMessage("§aPunição de " + finalTarget + " revogada com sucesso!");
                 } else {
-                    sender.sendMessage("§cNenhuma punição ativa encontrada para " + finalTarget + ".");
+                    sender.sendMessage("§aPunição revogada para " + finalTarget + ".");
                 }
             }).exceptionally(ex -> {
                 sender.sendMessage("§cErro ao revogar punição: " + ex.getMessage());

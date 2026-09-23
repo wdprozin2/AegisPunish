@@ -55,6 +55,27 @@ public class AegisPunishAdminCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
+        if (sub.equals("clearvanilla") || sub.equals("purgevanilla")) {
+            sender.sendMessage("§e[AegisPunish] Limpando todos os banimentos nativos do Vanilla e Essentials...");
+            int cleared = 0;
+            try {
+                var nameBanList = Bukkit.getBanList(org.bukkit.BanList.Type.NAME);
+                for (var entry : new ArrayList<>(nameBanList.getBanEntries())) {
+                    nameBanList.pardon(entry.getTarget());
+                    cleared++;
+                }
+                var ipBanList = Bukkit.getBanList(org.bukkit.BanList.Type.IP);
+                for (var entry : new ArrayList<>(ipBanList.getBanEntries())) {
+                    ipBanList.pardon(entry.getTarget());
+                    cleared++;
+                }
+            } catch (Throwable e) {
+                sender.sendMessage("§cErro ao limpar banlist nativa: " + e.getMessage());
+            }
+            sender.sendMessage("§a[AegisPunish] Limpeza concluída! " + cleared + " banimentos removidos do Vanilla/Essentials.");
+            return true;
+        }
+
         if (sub.equals("import")) {
             if (args.length < 2) {
                 sender.sendMessage("§e=== AegisPunish Universal Importer ===");
