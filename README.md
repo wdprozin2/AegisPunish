@@ -2,6 +2,7 @@
 
 ![Platform](https://img.shields.io/badge/Platform-Paper%20%7C%20Purpur%20%7C%20Folia%20%7C%20Velocity%20%7C%20BungeeCord-blue?style=for-the-badge)
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.16%20--%2026.3%2B-green?style=for-the-badge)
+![SpigotMC](https://img.shields.io/badge/SpigotMC-139053-ED8106?style=for-the-badge&logo=spigotmc&logoColor=white)
 ![Wiki](https://img.shields.io/badge/Wiki-Documentation-00d2ff?style=for-the-badge&logo=gitbook&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21%20%7C%2025-orange?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-GPL--3.0-purple?style=for-the-badge)
@@ -13,9 +14,10 @@ Zero lag, sub-millisecond in-memory cache, unbypassable command hijacking, autom
 
 ---
 
-## 💬 Community & Support
+## 💬 Community & Links
 
-Need help, have a question, or found a bug?
+* **SpigotMC Resource:** [https://www.spigotmc.org/resources/139053/](https://www.spigotmc.org/resources/139053/)
+* **Modrinth Project:** [https://modrinth.com/plugin/aegispunish](https://modrinth.com/plugin/aegispunish)
 * **Official Documentation (Wiki):** [https://wdprozin2.github.io/AegisPunish/](https://wdprozin2.github.io/AegisPunish/)
 * **Discord Contact:** Add **`wdprozin_`** on Discord for direct support, bug reports, and suggestions!
 
@@ -116,4 +118,10 @@ Discord webhooks and in-game punishment menus look stunning regardless of client
 ## 📊 Statistics
 
 [![bStats](https://bstats.org/signatures/bukkit/AegisPunish.svg)](https://bstats.org/plugin/bukkit/AegisPunish/34230)
+
+---
+
+## 💡 Credits & Acknowledgements
+
+* **Inspiration:** Special thanks and acknowledgements to **LeafPunish**, which served as a major inspiration for the architecture, features, and concepts behind AegisPunish.
 
