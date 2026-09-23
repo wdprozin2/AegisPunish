@@ -1,0 +1,8 @@
+.gradle/
+build/
+**/build/
+target-dist/
+*.log
+.idea/
+*.iml
+.vscode/

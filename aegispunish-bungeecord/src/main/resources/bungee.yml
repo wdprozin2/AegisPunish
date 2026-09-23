@@ -1,0 +1,5 @@
+name: AegisPunish
+version: '1.0.5'
+main: com.aegispunish.bungee.AegisPunishBungee
+author: "AegisTeam"
+description: "Módulo Proxy do AegisPunish para BungeeCord e WaterFall."

@@ -1,0 +1,50 @@
+# AegisPunish - Configuração Oficial
+
+database:
+  type: MySQL
+  mysql:
+    host: 'localhost'
+    user: 'root'
+    password: ''
+    port: 3306
+    database: 'aegispunish'
+  pool-settings:
+    max-pool-size: 30
+    min-idle: 10
+    max-lifetime: 1800000
+    connection-timeout: 5000
+
+proof-domains:
+  - "https://"
+  - "youtube.com"
+  - "youtu.be"
+  - "imgur.com"
+  - "prnt.sc"
+
+discord:
+  webhookURL: ""
+
+broadcasts:
+  status:
+    enable: true
+    sound: "BLOCK_WOODEN_BUTTON_CLICK_ON"
+    delay: 30
+    period: 24
+
+hierarchy:
+  enabled: true
+  prevent-equal-rank: true
+  groups:
+    owner: 100
+    diretor: 90
+    gerente: 80
+    admin: 70
+    mod+: 60
+    mod: 50
+    ajudante: 40
+    default: 0
+
+updates:
+  check-on-startup: true
+  auto-download: true
+  notify-admins-on-join: true

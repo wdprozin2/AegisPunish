@@ -1,0 +1,62 @@
+name: AegisPunish
+version: '1.0.5'
+main: com.aegispunish.paper.AegisPunishPaper
+api-version: '1.20'
+folia-supported: true
+author: "AegisTeam"
+description: "Sistema corporativo e multi-plataforma de punições e moderação."
+softdepend:
+  - LuckPerms
+  - PlaceholderAPI
+  - SkinsRestorer
+  - floodgate
+
+commands:
+  punir:
+    description: "Abre o menu principal de punição."
+    permission: aegispunish.command.punir
+  ban:
+    description: "Bane um jogador permanentemente."
+    permission: aegispunish.command.ban
+  tempban:
+    description: "Bane um jogador temporariamente."
+    permission: aegispunish.command.tempban
+  ipban:
+    description: "Bane um endereço de IP permanentemente."
+    permission: aegispunish.command.ipban
+  tempipban:
+    description: "Bane um endereço de IP temporariamente."
+    permission: aegispunish.command.tempipban
+  mute:
+    description: "Silencia um jogador permanentemente."
+    permission: aegispunish.command.mute
+  tempmute:
+    description: "Silencia um jogador temporariamente."
+    permission: aegispunish.command.tempmute
+  warn:
+    description: "Aplica um alerta ao jogador."
+    permission: aegispunish.command.warn
+  kick:
+    description: "Expulsa um jogador do servidor."
+    permission: aegispunish.command.kick
+  unban:
+    description: "Desbane um jogador."
+    permission: aegispunish.command.unban
+  unmute:
+    description: "Remove o silenciamento de um jogador."
+    permission: aegispunish.command.unmute
+  pardon:
+    description: "Revoga uma punição pelo ID ou jogador."
+    permission: aegispunish.command.pardon
+  historic:
+    description: "Consulta o histórico de punições de um jogador."
+    permission: aegispunish.command.historic
+  aegispunish:
+    description: "Comando administrativo do AegisPunish."
+    aliases: [aegis]
+    permission: aegispunish.admin
+  aegis:
+    description: "Comando administrativo do AegisPunish."
+    aliases: [aegispunish]
+    permission: aegispunish.admin
+
