@@ -197,7 +197,9 @@ public class PunishmentCacheManager {
     }
 
     private Optional<Punishment> queryActiveFromDb(UUID uuid, String ip, String name, boolean ban) {
-        String typeFilter = ban ? " IN ('BAN', 'TEMPBAN', 'IPBAN', 'TEMPIPBAN') " : " IN ('MUTE', 'TEMPMUTE') ";
+        String typeFilter = ban 
+                ? " AND type IN ('BAN', 'TEMPBAN', 'IPBAN', 'TEMPIPBAN') " 
+                : " AND type IN ('MUTE', 'TEMPMUTE') ";
         String sql = """
             SELECT * FROM punishments 
             WHERE (target_uuid = ? 
@@ -205,7 +207,7 @@ public class PunishmentCacheManager {
                    OR (target_name IS NOT NULL AND target_name != '' AND LOWER(target_name) = LOWER(?))) 
               AND active = TRUE 
               AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
-              AND type""" + typeFilter + """
+        """ + typeFilter + """
             ORDER BY id DESC LIMIT 1
         """;
 

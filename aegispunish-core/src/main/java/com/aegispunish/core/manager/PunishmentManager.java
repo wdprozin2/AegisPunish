@@ -195,12 +195,15 @@ public class PunishmentManager implements AegisPunishAPI {
     @Override
     public CompletableFuture<Boolean> revokeByTarget(String target, boolean isBan, UUID revokerUuid, String revokerName, String revokeReason) {
         return CompletableFuture.supplyAsync(() -> {
+            String typeFilter = isBan 
+                    ? " AND type IN ('BAN', 'TEMPBAN', 'IPBAN', 'TEMPIPBAN') " 
+                    : " AND type IN ('MUTE', 'TEMPMUTE') ";
             String selectSql = """
                 SELECT id, target_name, target_uuid, type, reason FROM punishments 
                 WHERE (LOWER(target_name) = LOWER(?) OR target_ip = ? OR target_uuid = ?) 
                   AND active = TRUE 
                   AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)
-                  AND type """ + (isBan ? "IN ('BAN', 'TEMPBAN', 'IPBAN', 'TEMPIPBAN')" : "IN ('MUTE', 'TEMPMUTE')") + """
+            """ + typeFilter + """
                 ORDER BY id DESC
             """;
             String updateSql = "UPDATE punishments SET active = FALSE, revoked_by_uuid = ?, " +
