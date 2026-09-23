@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisPunish | Documentação Oficial</title>
+  <meta name="description" content="Documentação oficial do AegisPunish - Suíte corporativa de moderação, punições, hierarquia de cargos e auto-updater para redes de Minecraft.">
+  <link rel="icon" href="https://img.icons8.com/fluency/48/shield.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #18191a;
+      --card-bg: #242526;
+      --card-border: #303336;
+      --sidebar-bg: #1c1e21;
+      --text-main: #f5f6f7;
+      --text-muted: #9ba1a6;
+      --accent: #00d2ff;
+      --accent-glow: rgba(0, 210, 255, 0.15);
+      --accent-secondary: #1fb5ff;
+      --code-bg: #1e1e24;
+      --nav-height: 60px;
+      --sidebar-width: 290px;
+      --toc-width: 240px;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: #70e4ff;
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background-color: rgba(24, 25, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .navbar-brand span {
+      background: linear-gradient(135deg, #00d2ff, #1fb5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .navbar-brand img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .badge-version {
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      color: #00d2ff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      list-style: none;
+    }
+
+    .navbar-link {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .navbar-link:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-github {
+      background: #2b3137;
+      color: #fff !important;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-github:hover {
+      background: #373e47;
+      text-decoration: none;
+    }
+
+    /* LAYOUT */
+    .container {
+      display: flex;
+      margin-top: var(--nav-height);
+      min-height: calc(100vh - var(--nav-height));
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: var(--sidebar-width);
+      position: fixed;
+      top: var(--nav-height);
+      bottom: 0;
+      left: 0;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--card-border);
+      padding: 20px 16px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #3e4247 transparent;
+    }
+
+    .sidebar-search {
+      margin-bottom: 16px;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      background: #121314;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .sidebar-search input:focus {
+      border-color: var(--accent);
+    }
+
+    .sidebar-group-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7a8289;
+      font-weight: 700;
+      padding: 8px 12px;
+      margin-top: 12px;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+    }
+
+    .sidebar-item a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      color: #b0b8bf;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .sidebar-item a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .sidebar-item.active a {
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-weight: 600;
+      border-left: 3px solid var(--accent);
+    }
+
+    /* CONTENT AREA */
+    .content {
+      margin-left: var(--sidebar-width);
+      margin-right: var(--toc-width);
+      padding: 40px 48px 100px;
+      flex: 1;
+      max-width: 980px;
+    }
+
+    /* TOC (Right Sidebar) */
+    .toc {
+      width: var(--toc-width);
+      position: fixed;
+      top: var(--nav-height);
+      right: 0;
+      bottom: 0;
+      padding: 40px 24px;
+      overflow-y: auto;
+      border-left: 1px solid var(--card-border);
+    }
+
+    .toc-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #7a8289;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .toc-menu {
+      list-style: none;
+    }
+
+    .toc-menu li {
+      margin-bottom: 8px;
+    }
+
+    .toc-menu a {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+      display: block;
+      transition: color 0.15s;
+    }
+
+    .toc-menu a:hover, .toc-menu a.active {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* BREADCRUMBS */
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumbs span {
+      color: #555c63;
+    }
+
+    /* HERO BANNER */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.08) 0%, rgba(31, 181, 255, 0.02) 100%);
+      border: 1px solid rgba(0, 210, 255, 0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-banner h1 span {
+      background: linear-gradient(135deg, #00d2ff, #1fb5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #c0c7ce;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-badges img {
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    /* TYPOGRAPHY */
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #e5e9ec;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #d1d7dc;
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      color: #d1d7dc;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* CODE & BLOCKS */
+    code {
+      font-family: var(--font-mono);
+      background: var(--code-bg);
+      color: #ff85a0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    pre code {
+      background: none;
+      color: #f1f1f1;
+      padding: 0;
+      border: none;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* TABLES */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 24px;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th {
+      background: #212326;
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #d1d7dc;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* CARDS & ALERTS */
+    .alert {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-left: 4px solid;
+    }
+
+    .alert-tip {
+      background: rgba(0, 210, 255, 0.06);
+      border-left-color: #00d2ff;
+      color: #c9effa;
+    }
+
+    .alert-warning {
+      background: rgba(255, 170, 0, 0.08);
+      border-left-color: #ffaa00;
+      color: #fce7b6;
+    }
+
+    .alert-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    /* FEATURE GRID */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 24px 0 36px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 20px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 210, 255, 0.4);
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 60px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .toc { display: none; }
+      .content { margin-right: 0; }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .content { margin-left: 0; padding: 24px 16px; }
+      .hero-banner h1 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <img src="https://img.icons8.com/fluency/48/shield.png" alt="AegisShield">
+      <span>AegisPunish</span>
+      <span class="badge-version">v1.0.5</span>
+    </div>
+    <ul class="navbar-nav">
+      <li><a class="navbar-link" href="#sobre">Início</a></li>
+      <li><a class="navbar-link" href="#comandos">Comandos</a></li>
+      <li><a class="navbar-link" href="#instalacao">Download</a></li>
+      <li><a class="navbar-link" href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener">Modrinth</a></li>
+      <li>
+        <a class="btn-github" href="https://github.com/wdprozin2/AegisPunish" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <input type="text" id="docSearch" placeholder="Buscar na documentação...">
+      </div>
+
+      <div class="sidebar-group-title">Introdução</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active"><a href="#sobre">🛡️・Sobre o AegisPunish</a></li>
+        <li class="sidebar-item"><a href="#caracteristicas">⚡・Destaques & Features</a></li>
+        <li class="sidebar-item"><a href="#instalacao">📦・Instalação & Setup</a></li>
+      </ul>
+
+      <div class="sidebar-group-title">Sistemas Principais</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item"><a href="#database">💾・Dual Storage (SQL/SQLite)</a></li>
+        <li class="sidebar-item"><a href="#hierarquia">⚖️・Hierarquia (LuckPerms)</a></li>
+        <li class="sidebar-item"><a href="#discord">💬・Discord Webhooks & Provas</a></li>
+        <li class="sidebar-item"><a href="#migrador">🔄・Migrador Universal</a></li>
+        <li class="sidebar-item"><a href="#autoupdate">⬆️・Auto-Updater Modrinth</a></li>
+        <li class="sidebar-item"><a href="#bedrock">👤・Bedrock & SkinsRestorer</a></li>
+      </ul>
+
+      <div class="sidebar-group-title">Referência</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item"><a href="#comandos">📋・Comandos & Permissões</a></li>
+        <li class="sidebar-item"><a href="#estatisticas">📊・Estatísticas (bStats)</a></li>
+        <li class="sidebar-item"><a href="#suporte">🤝・Suporte & Comunidade</a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+      <div class="breadcrumbs">
+        <a href="#sobre">Docs</a> <span>/</span>
+        <a href="#sobre">AegisPunish</a> <span>/</span>
+        <strong>Visão Geral</strong>
+      </div>
+
+      <!-- HERO BANNER -->
+      <section class="hero-banner" id="sobre">
+        <h1>Suíte Corporativa de <span>Moderação</span></h1>
+        <p class="hero-subtitle">
+          Engine avançada de punições, banimentos, silenciamentos e auditoria projetada para redes Paper, Folia, Velocity e BungeeCord. Desempenho sub-milissegundo com proteção anti-abuso.
+        </p>
+        <div class="hero-badges">
+          <img src="https://img.shields.io/badge/Minecraft-1.16%20--%2026.3%2B-brightgreen?style=flat-square" alt="MC Version">
+          <img src="https://img.shields.io/badge/Plataforma-Paper%20%7C%20Folia%20%7C%20Velocity%20%7C%20Bungee-blue?style=flat-square" alt="Platforms">
+          <img src="https://img.shields.io/badge/Java-21%20%7C%2025-orange?style=flat-square" alt="Java">
+          <img src="https://img.shields.io/badge/Discord-wdprozin__-5865F2?style=flat-square&logo=discord&logoColor=white" alt="Discord">
+        </div>
+      </section>
+
+      <!-- CARACTERÍSTICAS -->
+      <section id="caracteristicas">
+        <h2>⚡ Recursos em Destaque</h2>
+        <p>Desenvolvido para atender desde servidores Survival e RankUP individuais até redes com dezenas de milhares de jogadores simultâneos.</p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🛑</div>
+            <div class="feature-title">Injeção no CommandMap</div>
+            <div class="feature-desc">Substitui comandos nativos como <code>/minecraft:ban</code> e atalhos com prioridade máxima, impedindo que staffers ou jogadores burlem punições com prefixos.</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⚖️</div>
+            <div class="feature-title">Hierarquia de Cargos</div>
+            <div class="feature-desc">Integração profunda com o <strong>LuckPerms</strong> e verificação de jogadores offline. Impede que moderadores punam cargos equivalentes ou superiores.</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💾</div>
+            <div class="feature-title">Armazenamento Dual Engine</div>
+            <div class="feature-desc">Conexão MySQL/MariaDB de alta performance via HikariCP com <strong>fallback automático para SQLite local</strong> sem perda de dados caso o MySQL caia.</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <div class="feature-title">Webhooks Discord com Avatar</div>
+            <div class="feature-desc">Notificações em tempo real com skin 3D, motivos, links de provas, tempo relativo e embed especial rosa para revogações e perdões.</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-title">Migrador Universal</div>
+            <div class="feature-desc">Migração com 1 clique de punições ativas e históricos vindos do <strong>LiteBans, AdvancedBan, LeafPunish, EssentialsX</strong> e Vanilla.</div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">⬆️</div>
+            <div class="feature-title">Auto-Updater Modrinth</div>
+            <div class="feature-desc">Verificação automática de novas versões direto no Modrinth com notificação in-game e comando <code>/aegis update</code> com download seguro em segundo plano.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALAÇÃO -->
+      <section id="instalacao">
+        <h2>📦 Instalação & Setup</h2>
+        <p>A instalação é extremamente simples e não exige nenhuma dependência externa obrigatória:</p>
+
+        <ol>
+          <li>Baixe o <code>.jar</code> correspondente à sua plataforma na pasta de downloads ou no Modrinth:
+            <ul>
+              <li><strong>Paper / Purpur / Folia / Spigot:</strong> <code>AegisPunish-Paper.jar</code></li>
+              <li><strong>Velocity:</strong> <code>AegisPunish-Velocity.jar</code></li>
+              <li><strong>BungeeCord / Waterfall:</strong> <code>AegisPunish-BungeeCord.jar</code></li>
+            </ul>
+          </li>
+          <li>Coloque o arquivo na pasta <code>plugins/</code> do servidor.</li>
+          <li>Inicie ou reinicie o servidor para gerar as configurações padrão em <code>plugins/AegisPunish/config.yml</code>.</li>
+          <li><em>(Opcional)</em> Configure os dados do seu banco MySQL. Se não configurar nada, o SQLite local será ativado instantaneamente sem necessidade de configuração adicional.</li>
+        </ol>
+
+        <div class="alert alert-tip">
+          <div class="alert-title">💡 Dica de Atualização</div>
+          Você pode usar <code>/aegis update</code> a qualquer momento dentro do servidor para baixar a versão mais estável do Modrinth automaticamente.
+        </div>
+      </section>
+
+      <!-- BANCO DE DADOS -->
+      <section id="database">
+        <h2>💾 Armazenamento Dual Engine (MySQL & SQLite)</h2>
+        <p>O AegisPunish conta com um sistema de tolerância a falhas pioneiro. O pool de conexões é gerenciado pelo <strong>HikariCP</strong> com índices compostos para leituras e gravações assíncronas.</p>
+
+        <pre><code>database:
+  # Escolha: 'MySQL' para servidores em rede ou 'SQLite' para local
+  type: 'SQLite'
+  mysql:
+    host: 'localhost'
+    port: 3306
+    database: 'aegispunish'
+    user: 'root'
+    password: ''
+  pool-settings:
+    max-pool-size: 30
+    min-idle: 10
+    max-lifetime: 1800000
+    connection-timeout: 5000</code></pre>
+      </section>
+
+      <!-- HIERARQUIA -->
+      <section id="hierarquia">
+        <h2>⚖️ Sistema de Hierarquia & Proteção Anti-Abuso</h2>
+        <p>Para evitar abusos onde membros da staff aplicam punições em outros staffers do mesmo cargo ou superiores, o AegisPunish resolve a cadeia de grupos de forma inteligente:</p>
+
+        <ul>
+          <li><strong>LuckPerms:</strong> Consulta a hierarquia recursiva do jogador e o peso (<code>weight</code>) de cada grupo herdado.</li>
+          <li><strong>Jogadores Offline:</strong> Quando o jogador punido estiver offline, o sistema realiza uma leitura assíncrona na base do LuckPerms via <code>loadUser(UUID)</code>.</li>
+          <li><strong>Pesos Personalizados:</strong> Permissão direta de peso: <code>aegispunish.weight.&lt;N&gt;</code> (ex: <code>aegispunish.weight.100</code>).</li>
+          <li><strong>Opção prevent-equal-rank:</strong> Se ativada, staffers de mesmo peso (ex: dois Ajudantes) não podem punir ou revogar punições um do outro.</li>
+        </ul>
+
+        <pre><code>hierarchy:
+  enabled: true
+  prevent-equal-rank: true
+  groups:
+    dono: 100
+    diretor: 90
+    administrador: 70
+    moderador: 50
+    ajudante: 30</code></pre>
+      </section>
+
+      <!-- COMANDOS E PERMISSÕES -->
+      <section id="comandos">
+        <h2>📋 Tabela de Comandos & Permissões</h2>
+        <p>Todos os comandos suportam a flag silenciosa <code>-s</code> para não anunciar no chat global.</p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Comando</th>
+                <th>Permissão</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/punir [jogador]</code></td>
+                <td><code>aegispunish.command.punir</code></td>
+                <td>Abre o menu gráfico interativo (GUI) de punições.</td>
+              </tr>
+              <tr>
+                <td><code>/ban &lt;jogador&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.ban</code></td>
+                <td>Bane um jogador permanentemente da rede.</td>
+              </tr>
+              <tr>
+                <td><code>/tempban &lt;jogador&gt; &lt;tempo&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.tempban</code></td>
+                <td>Bane temporariamente (ex: <code>7d</code>, <code>12h</code>, <code>30m</code>).</td>
+              </tr>
+              <tr>
+                <td><code>/ipban &lt;jogador/IP&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.ipban</code></td>
+                <td>Bane o endereço de IP permanentemente.</td>
+              </tr>
+              <tr>
+                <td><code>/tempipban &lt;jogador/IP&gt; &lt;tempo&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.tempipban</code></td>
+                <td>Bane temporariamente o endereço de IP.</td>
+              </tr>
+              <tr>
+                <td><code>/mute &lt;jogador&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.mute</code></td>
+                <td>Silencia o jogador permanentemente no chat.</td>
+              </tr>
+              <tr>
+                <td><code>/tempmute &lt;jogador&gt; &lt;tempo&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.tempmute</code></td>
+                <td>Silencia o jogador temporariamente.</td>
+              </tr>
+              <tr>
+                <td><code>/warn &lt;jogador&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.warn</code></td>
+                <td>Aplica um aviso oficial com escada de punição automática.</td>
+              </tr>
+              <tr>
+                <td><code>/kick &lt;jogador&gt; [motivo] [-s]</code></td>
+                <td><code>aegispunish.command.kick</code></td>
+                <td>Expulsa um jogador online do servidor.</td>
+              </tr>
+              <tr>
+                <td><code>/unban &lt;jogador/IP&gt;</code></td>
+                <td><code>aegispunish.command.unban</code></td>
+                <td>Desbane o jogador, limpa cache e envia embed no Discord.</td>
+              </tr>
+              <tr>
+                <td><code>/unmute &lt;jogador&gt;</code></td>
+                <td><code>aegispunish.command.unmute</code></td>
+                <td>Remove o silenciamento de um jogador.</td>
+              </tr>
+              <tr>
+                <td><code>/pardon &lt;id/jogador&gt;</code></td>
+                <td><code>aegispunish.command.pardon</code></td>
+                <td>Revoga qualquer punição ativa universalmente.</td>
+              </tr>
+              <tr>
+                <td><code>/historic &lt;jogador&gt;</code></td>
+                <td><code>aegispunish.command.historic</code></td>
+                <td>Consulta o histórico completo de infrações do jogador.</td>
+              </tr>
+              <tr>
+                <td><code>/aegis update</code></td>
+                <td><code>aegispunish.admin</code></td>
+                <td>Verifica e baixa a versão mais recente do Modrinth.</td>
+              </tr>
+              <tr>
+                <td><code>/aegis reload</code></td>
+                <td><code>aegispunish.admin</code></td>
+                <td>Recarrega configurações, pesos e auto-updater.</td>
+              </tr>
+              <tr>
+                <td><code>/aegis import &lt;fonte&gt;</code></td>
+                <td><code>aegispunish.admin</code></td>
+                <td>Importa dados do LiteBans, AdvancedBan, LeafPunish, etc.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- DISCORD E PROVAS -->
+      <section id="discord">
+        <h2>💬 Discord Webhooks & Validação de Provas</h2>
+        <p>Envie logs detalhados diretamente para o canal da sua equipe no Discord:</p>
+
+        <ul>
+          <li><strong>Embeds Estilizados:</strong> Inclui render da skin do jogador, operador responsável, escopo do servidor e tempo relativo (<code>&lt;t:TIMESTAMP:R&gt;</code>).</li>
+          <li><strong>Embed de Perdão Especial:</strong> Cor magenta/rosa emitida automaticamente ao desbanir ou desmutar.</li>
+          <li><strong>Validação de Links de Provas:</strong> Garante que os staffers só anexem provas de domínios confiáveis (YouTube, Imgur, Lightshot, etc.).</li>
+        </ul>
+      </section>
+
+      <!-- MIGRADOR UNIVERSAL -->
+      <section id="migrador">
+        <h2>🔄 Migrador Universal de Legados</h2>
+        <p>Trocar de plugin nunca foi tão fácil. O AegisPunish importa históricos, banimentos ativos e registros de IP em segundos com um único comando no console ou in-game:</p>
+
+        <pre><code>/aegis import litebans     # Importa de LiteBans (SQLite ou MySQL)
+/aegis import advancedban  # Importa de AdvancedBan (SQLite ou MySQL)
+/aegis import leafpunish   # Importa de LeafPunish (SQLite ou MySQL)
+/aegis import essentials   # Importa da pasta plugins/Essentials/userdata/
+/aegis import vanilla      # Importa de banned-players.json e banned-ips.json</code></pre>
+      </section>
+
+      <!-- AUTO-UPDATER -->
+      <section id="autoupdate">
+        <h2>⬆️ Auto-Updater Integrado</h2>
+        <p>Mantenha seu servidor sempre seguro com as últimas correções:</p>
+        <ul>
+          <li>Consulta assíncrona automática à API oficial do Modrinth ao iniciar e periodicamente.</li>
+          <li>Notificação no chat para administradores com permissão <code>aegispunish.admin</code> ao entrarem no servidor caso haja nova versão.</li>
+          <li>O comando <code>/aegis update</code> baixa o novo arquivo direto para <code>plugins/update/</code>, sendo aplicado no próximo reinício sem corromper o arquivo em execução.</li>
+        </ul>
+      </section>
+
+      <!-- BEDROCK E SKINS -->
+      <section id="bedrock">
+        <h2>👤 Compatibilidade Floodgate (Bedrock) & SkinsRestorer</h2>
+        <p>Em servidores com Geyser e contas piratas, outros plugins costumam falhar ao barrar jogadores banidos. O AegisPunish resolve isso nativamente:</p>
+        <ul>
+          <li><strong>Busca Multicamada:</strong> Checagem simultânea por UUID, IP e <code>LOWER(target_name)</code> para barrar jogadores Bedrock (prefixos como <code>.Nome</code>) mesmo que o UUID mude.</li>
+          <li><strong>Floodgate API:</strong> Renderiza a face correta de jogadores do Bedrock no Discord e nos menus.</li>
+          <li><strong>SkinsRestorer v15:</strong> Extrai os hashes de textura SHA-256 para exibir a skin customizada de qualquer jogador.</li>
+        </ul>
+      </section>
+
+      <!-- ESTATÍSTICAS -->
+      <section id="estatisticas">
+        <h2>📊 Estatísticas Oficiais (bStats)</h2>
+        <p>O AegisPunish possui métricas anônimas integradas com o bStats (Plugin ID <strong>34230</strong>):</p>
+        
+        <p align="center" style="margin: 24px 0;">
+          <a href="https://bstats.org/plugin/bukkit/AegisPunish/34230" target="_blank" rel="noopener">
+            <img src="https://bstats.org/signatures/bukkit/AegisPunish.svg" alt="bStats Metrics" style="max-width: 100%; border-radius: 6px;">
+          </a>
+        </p>
+      </section>
+
+      <!-- SUPORTE -->
+      <section id="suporte">
+        <h2>🤝 Suporte & Comunidade</h2>
+        <p>Precisa de suporte, encontrou algum bug ou tem sugestões de melhorias?</p>
+        <ul>
+          <li><strong>Discord Pessoal:</strong> Fale diretamente com o desenvolvedor adicionando <code>wdprozin_</code> no Discord.</li>
+          <li><strong>Modrinth:</strong> <a href="https://modrinth.com/plugin/aegispunish" target="_blank" rel="noopener">modrinth.com/plugin/aegispunish</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/wdprozin2/AegisPunish" target="_blank" rel="noopener">github.com/wdprozin2/AegisPunish</a></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>© 2026 AegisPunish. Desenvolvido por <strong>wdprozin_</strong>. Licenciado sob a GPL-3.0.</p>
+        <p style="margin-top: 6px; font-size: 0.8rem; color: #6b7280;">Hospedado gratuitamente no GitHub Pages.</p>
+      </footer>
+
+    </main>
+
+    <!-- RIGHT TOC -->
+    <aside class="toc">
+      <div class="toc-title">Nessa página</div>
+      <ul class="toc-menu">
+        <li><a href="#sobre">Sobre o AegisPunish</a></li>
+        <li><a href="#caracteristicas">Recursos em Destaque</a></li>
+        <li><a href="#instalacao">Instalação & Setup</a></li>
+        <li><a href="#database">Armazenamento Dual</a></li>
+        <li><a href="#hierarquia">Hierarquia de Cargos</a></li>
+        <li><a href="#comandos">Comandos & Permissões</a></li>
+        <li><a href="#discord">Discord & Provas</a></li>
+        <li><a href="#migrador">Migrador Universal</a></li>
+        <li><a href="#autoupdate">Auto-Updater</a></li>
+        <li><a href="#bedrock">Bedrock & Skins</a></li>
+        <li><a href="#estatisticas">Estatísticas (bStats)</a></li>
+        <li><a href="#suporte">Suporte & Comunidade</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+  <script>
+    // Search Filter
+    const searchInput = document.getElementById('docSearch');
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      sidebarItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    // Active TOC link on scroll
+    const sections = document.querySelectorAll('section');
+    const tocLinks = document.querySelectorAll('.toc-menu a');
+    const sidebarLinks = document.querySelectorAll('.sidebar-item');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 120;
+        if (pageYOffset >= top) {
+          current = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+
+      sidebarLinks.forEach(item => {
+        const link = item.querySelector('a');
+        item.classList.remove('active');
+        if (link && link.getAttribute('href') === '#' + current) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
