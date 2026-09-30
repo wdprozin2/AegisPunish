@@ -5,6 +5,7 @@
 [![SpigotMC](https://img.shields.io/badge/SpigotMC-139053-ED8106?style=for-the-badge&logo=spigotmc&logoColor=white)](https://www.spigotmc.org/resources/139053/)
 [![Modrinth](https://img.shields.io/badge/Modrinth-AegisPunish-00AF5C?style=for-the-badge&logo=modrinth&logoColor=white)](https://modrinth.com/plugin/aegispunish)
 [![Wiki](https://img.shields.io/badge/Wiki-Documentation-00d2ff?style=for-the-badge&logo=gitbook&logoColor=white)](https://wdprozin2.github.io/AegisPunish/)
+[![bStats](https://img.shields.io/badge/bStats-34230-00d2ff?style=for-the-badge&logo=apachespark&logoColor=white)](https://bstats.org/plugin/bukkit/AegisPunish/34230)
 ![Java](https://img.shields.io/badge/Java-21%20%7C%2025-orange?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-GPL--3.0-purple?style=for-the-badge)
 ![Discord](https://img.shields.io/badge/Discord-wdprozin__-5865F2?style=for-the-badge&logo=discord&logoColor=white)
@@ -118,7 +119,7 @@ Discord webhooks and in-game punishment menus look stunning regardless of client
 
 ## 📊 Statistics
 
-[![bStats](https://bstats.org/signatures/bukkit/AegisPunish.svg)](https://bstats.org/plugin/bukkit/AegisPunish/34230)
+[![bStats](https://raw.githubusercontent.com/wdprozin2/AegisPunish/main/docs/img/bstats.svg)](https://bstats.org/plugin/bukkit/AegisPunish/34230)
 
 ---
 

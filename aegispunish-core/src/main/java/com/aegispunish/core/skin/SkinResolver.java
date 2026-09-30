@@ -34,15 +34,16 @@ public class SkinResolver {
     }
 
     public String resolveAvatarUrl(UUID playerUuid, String playerName) {
-        if (floodgateLoaded && playerUuid != null) {
-            try {
-                org.geysermc.floodgate.api.FloodgateApi api = org.geysermc.floodgate.api.FloodgateApi.getInstance();
-                if (api.isFloodgatePlayer(playerUuid)) {
-                    return "https://api.geysermc.org/v2/skin/" + api.getPlayer(playerUuid).getXuid();
-                }
-            } catch (Throwable ignored) {}
+        // 1. Bedrock / Floodgate player: mc-heads resolves Floodgate UUIDs directly to Bedrock skin avatars
+        if (isFloodgatePlayer(playerUuid, playerName)) {
+            if (playerUuid != null) {
+                return "https://mc-heads.net/avatar/" + playerUuid + "/100";
+            }
+            String cleanName = cleanBedrockPrefix(playerName);
+            return "https://mc-heads.net/avatar/" + cleanName + "/100";
         }
 
+        // 2. SkinsRestorer (Offline Java servers / custom skin textures)
         if (skinsRestorerLoaded && playerUuid != null) {
             try {
                 net.skinsrestorer.api.SkinsRestorer sr = net.skinsrestorer.api.SkinsRestorerProvider.get();
@@ -56,10 +57,43 @@ public class SkinResolver {
             } catch (Throwable ignored) {}
         }
 
-        if (playerUuid != null && playerUuid.version() == 4) {
+        // 3. Any valid player UUID (Java online v4, offline v3, etc.)
+        if (playerUuid != null) {
             return "https://mc-heads.net/avatar/" + playerUuid + "/100";
         }
-        return "https://mc-heads.net/avatar/" + playerName + "/100";
+
+        // 4. Fallback to clean player name
+        if (playerName != null && !playerName.isBlank()) {
+            return "https://mc-heads.net/avatar/" + cleanBedrockPrefix(playerName) + "/100";
+        }
+
+        return "https://mc-heads.net/avatar/MHF_Steve/100";
+    }
+
+    public boolean isFloodgatePlayer(UUID playerUuid, String playerName) {
+        // Floodgate UUIDs always have MSB == 0 (most significant bits)
+        if (playerUuid != null && playerUuid.getMostSignificantBits() == 0L) {
+            return true;
+        }
+        if (floodgateLoaded && playerUuid != null) {
+            try {
+                if (org.geysermc.floodgate.api.FloodgateApi.getInstance().isFloodgatePlayer(playerUuid)) {
+                    return true;
+                }
+            } catch (Throwable ignored) {}
+        }
+        if (playerName != null && (playerName.startsWith(".") || playerName.startsWith("*"))) {
+            return true;
+        }
+        return false;
+    }
+
+    private String cleanBedrockPrefix(String name) {
+        if (name == null) return "MHF_Steve";
+        if (name.startsWith(".") || name.startsWith("*")) {
+            return name.substring(1);
+        }
+        return name;
     }
 
     public String extractTextureHash(String base64Value) {
